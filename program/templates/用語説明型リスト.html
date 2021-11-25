@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+ <meta charaset="UTF-8">
+ <title>用語説明型リストを表す要素</title>
+ <style>
+     h1 {
+        color: gold;
+        font-size: 30px;
+     }
+    pre {
+        font-size: 20px;
+      }
+ </style>
+</head>
+<body>
+ <h1>用語説明型リスト</h1>
+  <p>用語説明リストとは、<strong>用語とその用語の説明</strong>が一体化したリストである</p>
+   <h2>&lt;dl&gt;</h2>
+    <p>&lt;dl&gt;は、description&nbsp;listの略で、<strong>説明リスト</strong>を表す<br>カテゴリはフローコンテンツ</p>
+   <h2>&lt;dt&gt;</h2>
+    <p>&lt;dt&gt;は、description&nbsp;termの略で、上記の説明リストの内の<strong>用語</strong>を表す
+    <br>&lt;dt&gt;は&lt;dl&gt;内のみに配置可能でどこに配置するのか明確なためカテゴリはない
+    <br>コンテンツモデルはフローコンテンツだが、一部使えない要素があるので注意する</p>
+   <h2>&lt;dd&gt;</h2>
+    <p>&lt;dd&gt;は、description,definitionの略で、上記の説明リスト内の<strong>説明や定義</strong>を表す
+    <br>&lt;dt&gt;と同じ理由でカテゴリはなく、コンテンツモデルはフローコンテンツである</p>
+     <h3>例</h3>
+      <p>実際に上記の要素を使って用語説明リストを作ってみると<p>
+      <dl>
+        <dt>python関数　「print()」</dt>
+         <dd>()内の文字列を出力する</dd>
+        <dt>python関数　「int()」</dt>
+         <dd>()内の数字を<em>int型</em>に変更する</dd>
+        <dt>python関数　「def」</dt>
+         <dd>defを使うと新たに関数を定義することができる</dd>
+      </dl>
+    <p>ソースコード</p>
+    <pre>
+
+
+   &lt;dl&gt;
+     &lt;dt&gt;python関数　「print()」&lt;/dt&gt;
+      &lt;dd&gt;()内の文字列を出力する&lt;/dd&gt;
+     &lt;dt&gt;python関数　「int()」&lt;/dt&gt;
+      &lt;dd&gt;()内の数字を&lt;em&gt;int型&lt;/em&gt;に変更する&lt;/dd&gt;
+     &lt;dt&gt;python関数　「def」&lt;/dt&gt;
+      &lt;dd&gt;defを使うと新たに関数を定義することができる&lt;/dd&gt;
+   &lt;/dl&gt;
+
+
+    </pre>
+
+     
+
+ 
+      <p>というようなリストが生成される（エディタ参照）<br>&lt;dd&gt;要素の部分には自動的にインデントが入る</p>
+
+
+</body>
+</html>

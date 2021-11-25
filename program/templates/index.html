@@ -1,0 +1,26 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+        <title>エモ吉のプログラミング基礎講座</title>
+        <link rel="stylesheet" href="{% static 'cms/login.css'%}" type=text/css>
+        <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    </head>
+  <body>
+    <h1 class="title">
+     エモ吉のプログラミング基礎講座
+    </h1>
+    {% if user.id  %}
+    <div class="login_user">
+      <p>ようこそ，{{ user.username }}さん</p>
+    </div>
+    <a href="{% url 'program:logout' %}" class="logout_btn">Sign&nbsp;Out</a>
+    <a href="{% url 'program:main_menu' %}" class="main_btn">Start&nbsp;Lesson</a>
+    {% else %}
+      <a href="{% url 'program:login' %}" class="login">Sign&nbsp;in</a>
+      <a href="{% url 'program:create_account' %}" class="create">Create&nbsp;Account</a>
+    {% endif %}
+  </body>
+</html>

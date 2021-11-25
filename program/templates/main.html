@@ -1,0 +1,94 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+        <title>エモ吉のHTML基礎講座</title> 
+        <link rel="stylesheet" href="{% static 'cms/main.css'%}" type=text/css>
+    </head>
+    <body class="back">
+        <header class="head">
+            <div class=fontbox>
+                <p class="hyper"><br>{{ user.username }}さん</p>
+                <h1 class="headtext">
+                    ～エモ吉のHTML基礎講座～
+                </h1>
+                <input type="checkbox" class="box" id="check">
+                <label for="check" class="manu" id="boxlabel"><span></span></label>
+                <div class="menu-box">
+                    <ul class="list-box">
+                        <li class="listmanu"><a href="{% url 'program:index' %}" class="button1">HOME</a></li>
+                        <li class="listmanu"><a href="{% url 'program:login' %}" class="button1">ログイン</a></li>
+                        <li class="listmanu"><a href="{% url 'program:create_account' %}" class="button1">会員登録</a></li>
+                        <li class="listmanu"><a href="#" class="button1">会社概要</a></li>
+                        <li class="listmanu"><a href="#" class="button1">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                   
+            </div>
+        </header>
+        <main class="i-main">
+            <div class="hero">
+                <img src="{% static 'cms/images/htmlpic.jpg'%}" alt="htmlimage" class="image">
+                <p>
+                    この講座は、私ことエモ吉が<br>
+                    これまでに学習したHTMLの使い方をまとめたものです。
+                </p>
+            </div>
+            <div class="top-head">
+
+            </div>
+            <div class="top-body">
+                <h2 class="h2main">HTMLとは？</h2>
+                <p class="ptag1">HTMLとは、
+                    <ruby>
+                        <rb>Hyper&nbsp;</rb>
+                        <rt>ハイパー</rt>
+                        <rb>Text&nbsp;</rb>
+                        <rt>テキスト</rt>
+                        <rb>Markup&nbsp;</rb>
+                        <rt>マークアップ</rt>
+                        <rb>Language&nbsp;</rb>
+                        <rt>ランゲージ</rt>
+                    </ruby>の略で、<br>
+                    <mark>タグまたは要素</mark>
+                    と呼ばれるものでそれぞれの文章に<em class="pstrong">意味や役割</em>
+                    <br>を持たせる
+                    <strong style="color: rgb(252, 26, 26,0.9);">マークアップ言語</strong>です。<br>
+                    これから以下の講座を順番に受けて行って、あなたも<br>
+                    HTMLの基礎をマスターしましょう！
+                 </p>
+            </div>
+            <div class="middle-body">
+                <h2 class="h2main">HTML講座</h2>
+                <p class="ptag1">以下のリンクから順番に講座を受講してみましょう！</p> 
+                <input type="checkbox" class="box2" id="check2">
+                <label for="check2" class="menu2" id="boxlabel2"><span></span></label>
+                <div class="lesson-box">
+                    <ol class="lesson-list">
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson1&nbsp;～HTMLのバージョン～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson2&nbsp;～文字コードの設定～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson3&nbsp;～BODY要素～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson4&nbsp;～要素の配置ルール～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson5&nbsp;～特殊文字、改行～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson6&nbsp;～箇条書き～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson7&nbsp;～用語説明型リスト～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson8&nbsp;～画像の表示～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson9&nbsp;～ハイパーリンク～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson10&nbsp;～表～</a></li>
+                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson11&nbsp;～フォーム～</a></li>
+                    </ol>
+                </div>
+
+                
+                    
+            </div>
+
+            <footer class="foot">
+                
+
+            </footer>
+        </main>
+    </body>
+</html>

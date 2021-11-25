@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.back {
+    background: rgba(192,192,192,0.5);
+}
+
+.fontbox {
+    margin: 0;
+    width: 100%;
+    display: flex;
+}
+
+.hyper {
+    font-family: serif;
+    font-style: initial;
+    font-size: 1vw;
+    font-weight: 500;
+    color: #fff;
+    float: left;
+}
+
+
+.headtext {
+    position: relative;
+    left: 20%;
+    margin: 0;
+    padding: 1px;
+    font-family: 源界明朝;
+    font-style: normal;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.986);
+    display: inline-block;
+    
+    
+}
+
+
+
+.head {
+    position: fixed;
+    display: flex;
+    line-height: 1;
+    top: 0;
+    left: 0;
+    padding: 0;
+    z-index: 3;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.692);
+    color:#000;
+    transition: all 0.2s;
+}
+
+.manu {
+    position: relative;
+    left: 950px;
+    top: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2vw;
+    height: 2vw;
+    background-color: rgba(0, 174, 255, 0.63);
+}
+
+.box {
+     display: none;
+}
+
+.manu span,
+.manu span:before,
+.manu span:after {
+    position: absolute;
+    bottom: 0.9vw;
+    content: "";
+    display: block;
+    height: 0.1vw;
+    width: 1.3vw;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+.manu span:before {
+    bottom: 0.5vw;  
+}
+
+.manu span:after {
+    top: 0.5vw;
+}
+
+#check:checked ~ .manu span {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#check:checked ~ .manu span:before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+
+#check:checked ~ .manu span:after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.menu-box {
+    position: absolute;
+    top: 3.09vw;
+    left: 100%;
+    width: 30%;
+    height: 20.7vw;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: all 0.5s;
+}
+
+#check:checked ~ .menu-box {
+    left: 80%;
+}
+
+.list-box {
+    padding: 0.5vw 0;
+    list-style: none;
+}
+
+.listmanu {
+    padding: 1vw;
+    border-bottom: 1px solid #fff;
+}
+.button1 {
+    font-size: 2vw;
+    font-family: serif;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.button1:hover {
+    color: rgb(70, 67, 67);
+}
+
+
+.i-main {
+    width: 100%;
+    height: 100%;
+    
+}
+
+.image {
+    position: relative;
+    left: 2vw;
+    opacity: 0.5;
+    max-width: none;
+    width: 50%;
+    height: 15vw;
+}
+.hero {
+    margin-top: 3.1vw;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.hero p {
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    font-size: 2vw;
+    font-family: serif;
+    font-weight: 800;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+
+.top-head {
+    position: relative;
+    
+    margin-bottom: 7vw;
+    width: 100%;
+    text-align: center;
+}
+.top-body {
+    position: relative;
+    bottom: 4vw;
+    right: 0;
+    left: 25%;
+    
+    padding: 1vw;
+    max-width: 1200px;
+    width: 50%;
+    text-align: center;
+    background-color: rgba(83, 253, 253, 0.445);
+}
+
+
+.h2main {
+    font-size: 3.5vw;
+    color: rgba(0, 0, 0, 0.74);
+    border-width: 4px;
+    border-bottom: 5px solid rgb(255, 0, 0,0.8);
+    display: inline-block;
+    
+}
+.ptag1 {
+    margin-top: 1vw;
+    font-size: 1.4vw;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.pstrong {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.middle-body{
+    position: relative;
+    left: 10%;
+    bottom: 2vw;
+    padding-top: 1vw;
+    width: 80%;
+    height: auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255,0.9);
+    border-style: ridge;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 0.5vw;
+    transition: 0.5s;   
+}
+
+
+.menu2 {
+    position: relative;
+    left: 37%;
+    display: flex;
+    background-color: #D7EEFF;
+    width: 20vw;
+    height: 2vw;
+    justify-content: center;
+    align-items: center
+    
+}
+
+.menu2 span:after,
+.menu2 span:before {
+    position: absolute;
+    left: 50%;
+    content: "";
+    display: block;
+    height: 0.1vw;
+    width: 1.3vw;
+    background-color: #000;
+    transition: all 0.2s;
+}
+
+.menu2 span::after {
+    left: 9.15vw;
+    transform: rotate(45deg);
+}
+
+.menu2 span:before {
+    transform: rotate(-45deg);
+    
+}
+
+#check2:checked ~ .menu2 span:after {
+    transform: rotate(-45deg);
+}
+
+#check2:checked ~ .menu2 span:before {
+
+    transform: rotate(45deg);
+}
+
+
+.box2 {
+    display: none;
+}
+
+.lesson-box {
+    margin-bottom: 2vw;
+    position: relative;
+    left: 25%;
+    background-color: #D7EEFF;
+    width: 0;
+    height: 0;
+    z-index: 0;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+#check2:checked ~ .lesson-box {
+    
+    z-index: 0;
+    width: 50%;
+    height: auto;
+    border: 3px solid rgba(0, 0, 0, 0.692);
+}
+
+.lesson-box li {
+    position: relative;
+    list-style: none;
+    border-bottom:2px solid rgba(0, 0, 0, 0.5) ;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.lesson-box li:hover {
+    background-color: rgba(38, 134, 172, 0.842);
+}
+
+.lesson-box a {
+    font-size: 2vw;
+    color: rgba(0, 0, 0, 0.9);
+    font-family: serif;
+    text-decoration: none;
+}
+
+.foot {
+    background-color: rgba(0, 0, 0, 0.692);
+    width: 100%;
+    height: 20%;
+    margin-bottom: 0;
+}
+

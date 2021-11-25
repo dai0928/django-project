@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+<head>
+   <meta charaset="UTF-8">
+   <meta name='viewport' content="width=device-width">
+   <title>表を表す要素</title>
+</head>
+<body>
+
+<h1>基本的な表を作る時に使われる要素</h1>
+
+<h2>&lt;table&gt;要素</h2>
+<p>
+&lt;table&gt;要素は、表を表す要素でカテゴリはフローコンテンツ<br>
+コンテンツモデルは少し難しいので、後ろに表記する
+</p>
+
+<h3>&lt;tr&gt;要素</h3>
+<p>
+&lt;tr&gt;要素はtable&nbsp;row&nbsp;の略で表の「行」を表す<br>
+カテゴリはなく、コンテンツモデルは０個以上のth又はtd要素というセルの要素しか使えない
+</p>
+
+<h3>&lt;th&gt;要素</h3>
+<p>
+&lt;th&gt;要素はtable&nbsp;header&nbsp;cell&nbsp;の略で、列又は行の見出しセルを表す 
+</p>
+
+<h3>&lt;td&gt;要素</h3>
+<p>
+&lt;td&gt;要素はtable&nbsp;data&nbsp;cell&nbsp;の略で、見出しに対し内容のセルを表す
+</p>
+<p>
+以上が基本的な要素になる<br>
+これ以下は、表のヘッダーやフッターを表す要素を記述する<br>
+例えば表の内容が増えて表の内容が2ページ以上の物になった場合、上記の要素で作ったテーブルでは<br>
+<em>見出しセルは1ページ目にしか印刷されない</em>ので、2ページ目以降の項目がわかりにくくなる<br>
+そこで、表のヘッダー部分、内容の部分を記述することで、2ページ目以降でも見出しがついてくる
+</p>
+
+<h3>&lt;thead&gt;要素</h3>
+<p>
+&lt;thead&gt;要素はtable&nbsp;header&nbsp;の略で、見出し行を表す
+<p>
+
+<h3>&lt;tbody&gt;要素</h3>
+<p>
+&lt;tbody&gt;要素はtable&nbsp;body&nbsp;の略で、内容の行を表す
+</p>
+
+<h3>&lt;tfoot&gt;要素</h3>
+<p>
+&lt;tfoot&gt;要素はtable&nbsp;footer&nbsp;の略で、フッターの行を表す<br>
+フッターを使うときは、例えばテストの点数の表で一番下の行に合計のセルを入れたい場合などに使う
+</p>
+<p>
+ここまでが表のヘッダーなどを表す要素になる<br>
+以上を踏まえたうえで、table要素のコンテンツモデルは、<br>
+1.任意で1つのthead要素<br>
+2.それに続く1つ以上のtbody要素　又は　tr要素<br>
+3.それに続く、任意で1つ以上のtfoot要素
+になる
+</p>
+
+<p>例：</p>
+
+<table border="1">
+   <thead>
+      <tr>
+         <th>表に使う要素</th>
+         <th>要素の意味</th>
+　　　   <th>カテゴリ</th>
+　　　   <th>コンテンツモデル</th>
+      </tr>
+　 </thead>
+   <tbody>
+      <tr>
+         <td>table</td>
+         <td>「表」を表す</td>
+         <td>フローコンテンツ</td>
+         <td><ol>
+             <li>任意で1つのthead要素</li>
+             <li>それに続く1つ以上のtbody要素　又は　tr要素</li>
+　　　　　　 <li>それに続く、任意で1つ以上のtfoot要素</li>
+          </ol></td>
+      </tr>
+      <tr>
+         <td>tr</td>
+         <td>「行」を表す</td>
+         <td>なし</td>
+         <td>0個以上のth又はtd要素</td>
+      </tr>
+      <tr>
+         <td>th</td>
+         <td>「見出しセル」を表す</td>
+         <td>なし</td>
+         <td>フレージングコンテンツ</td>
+      </tr>
+      <tr>
+         <td>td</td>
+         <td>「内容のセル」を表す</td>
+         <td>なし</td>
+         <td>フローコンテンツ</td>
+      </tr>
+      <tr>
+         <td>thead</td>
+         <td>「見出し行」を表す</td>
+         <td>なし</td>
+         <td>0個以上のtr要素</td>
+      </tr>
+      <tr>
+         <td>tbody</td>
+         <td>「内容の行」を表す</td>
+         <td>なし</td>
+         <td>0個以上のtr要素</td>
+      </tr>
+      <tr>
+         <td>tfoot</td>
+         <td>「フッターの行」を表す</td>
+         <td>なし</td>
+         <td>0個以上のtr要素</td>
+      </tr>
+   </tbody>
+</table>
+
+
+<p>↓ソースコード<br></p>
+<pre>
+&lt;table border="1"&gt;
+   &lt;thead&gt;
+      &lt;tr&gt;
+         &lt;th&gt;表に使う要素&lt;/th&gt;
+         &lt;th&gt;要素の意味&lt;/th&gt;
+         &lt;th&gt;カテゴリ&lt;/th&gt;
+         &lt;th&gt;コンテンツモデル&lt;/th&gt;
+      &lt;/tr&gt;
+   &lt;/thead&gt;
+   &lt;tbody&gt;
+      &lt;tr&gt;
+         &lt;td&gt;table&lt;/td&gt;
+         &lt;td&gt;「表」を表す&lt;/td&gt;
+         &lt;td&gt;フローコンテンツ&lt;/td&gt;
+         &lt;td&gt;&lt;ol&gt;
+            &lt;li&gt;任意で1つのthead要素&lt;/li&gt;
+            &lt;li&gt;それに続く1つ以上のtbody要素　又は　tr要素&lt;/li&gt;
+            &lt;li&gt;それに続く、任意で1つ以上のtfoot要素&lt;/li&gt;
+         &lt;/ol&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+   &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+
+
+
+
+
+</body>
+</html>

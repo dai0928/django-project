@@ -1,0 +1,42 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+    <title>エモ吉のプログラミング基礎講座</title>
+    <link rel="stylesheet" href="{% static 'cms/login.css'%}" type=text/css>
+  </head>
+  <body>
+    <h1 class="title">
+      エモ吉のプログラミング基礎講座
+     </h1>
+     <div class="back-base">
+     <a href="{% url 'program:index' %}" class="back"><span>＜</span></a>
+    </div>
+    {% if form.errors  %}
+    <p class="error">ユーザーID, パスワードが一致しません．</p>
+    {% endif %}
+    <form method="POST" action="{% url 'program:login' %}">
+      {% csrf_token %}
+      <div class="input">
+        <dl class="id">
+          <label><dt>User_ID</dt>
+          <dd id="ID">
+          {{ form.username }}
+          {{ form.username.errors }}
+          </dd>
+          </label>
+
+          <label><dt>Password</dt>
+          <dd id="pass">
+          {{ form.password }}
+          {{ form.password.errors }}
+          </dd>
+         </label>
+        </dl>
+        <button type = "submit" class="button"><span>Sign&nbsp;in</span></button>
+      </div>
+    </form>
+  </body>
+</html>

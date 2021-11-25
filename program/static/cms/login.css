@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(-45deg, #18f12a9d, #0011ff93),
+    url(images/img_01.jpg);
+    background-size: cover;
+}
+
+.title {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-family: serif;
+    font-size: 3vw;
+    color: rgba(255, 255, 255, 0.801);
+}
+
+.back-base {
+    position: absolute;
+    top: 3%;
+    left: 1%;
+}
+
+
+.back span {
+    position: absolute;
+    top: 5%;
+    text-decoration: none;
+    font-size: 2vw;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+}
+
+.back:hover span {
+    color: #000;
+}
+
+
+
+.login_user {
+    position: relative;
+    top: 40%;
+    text-align: center;
+}
+
+.login_user p{
+    font-size: 2vw;
+    font-family: serif;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.logout_btn {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    text-decoration: none;
+    font-size: 2vw;
+    font-family: "Amatic SC", cursive;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.main_btn {
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    text-decoration: none;
+    font-size: 2vw;
+    font-family: "Amatic SC", cursive;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.logout_user {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    text-decoration: none;
+    font-size: 4vw;
+    font-family: "Amatic SC", cursive;
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.5s;
+}
+
+.login:hover {
+    font-size: 4.5vw;
+    color:rgba(0, 0, 0, 0.5);
+}
+
+.create {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-decoration: none;
+    font-size: 4vw;
+    font-family: "Amatic SC", cursive;
+    color: rgba(255,255,255,0.8);
+    transition: 0.5s;
+}
+
+.create:hover {
+    font-size: 4.5vw;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.input {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+
+.id dt, dd {
+    float: left;
+    margin: 1vw;
+    font-size: 2vw;
+    font-family: "Amatic SC", cursive;
+}
+
+
+.button {
+    position: absolute;
+    overflow: hidden;
+    font-size: 2vw;
+    font-family: serif;
+    top: 200%;
+    left: 45%;
+    color: #fff;
+    width: 30%;
+    height: 70%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+}
+
+.button span {
+    position: relative;
+    transition: 0.25s;
+}
+
+.button:hover span {
+    color: black;
+}
+
+.button:before { 
+    position: absolute;
+    content: "";
+    width: 150%;
+    height: 500%;
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-98%) translateY(-70%) rotate(135deg);
+    background-color: rgba(0, 255, 255, 0.582);
+}
+
+.button:hover:before {
+    transform: translateX(-9%) translateY(-25%) rotate(135deg) ;
+}
+
+.error {
+    position: absolute;
+    font-size: large;
+    top: 53%;
+    left: 43%;
+    color: rgba(255, 0, 0, 0.5);
+
+}
+
+.create-user {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    display: flex;
+    width:10%;
+}
+
+.create-text {
+    list-style: none;
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 1vw;
+}
+
+.error-text {
+
+}
+
+.button-register {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    overflow: hidden;
+    font-size: 1vw;
+    font-family: serif;
+
+    color: #fff;
+    width: 5%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+
+}
+
+.button-register span {
+    position: relative;
+    transition: 0.25s;
+}
+
+.button-register:hover span {
+    color: #000;
+}
+
+.button-register:before {
+    position: absolute;
+    right: 100%;
+    content: "";
+    background-color: rgba(72, 255, 0, 0.4);
+    width: 150%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.button-register:hover:before {
+    right: 0;
+}
