@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}フォームについて{% endblock %}
+
+{% block tag %}
+    <div class="next_box">
+      <a href="{% url 'program:main_menu' %}" class="next_lesson1">トップページへ</a>
+      <a href="{% url 'program:Lesson10' %}" class="back_lesson">Lessson10</a>
+    </div>
+{% endblock %}
+{% block content %}
+      <h1 class="title">Lesson11 ~フォームについて~</h1>
+        <img src="{% static 'cms/images/form.png' %}" alt="form_image" class="mainimage" height="500">
+        <p class="maintext"> 今回は「お問合せフォーム」や、「会員登録フォーム」などに使われる要素について紹介します。<br>
+        <strong>※ただし、HTMLのみだと、データを送信することができますが、受信することができません</strong><br>
+        データの受信には、「ＰＨＰ」などのプログラミング言語を併用する必要があります。</p>
+        <h2 class="maintitle">&lt;form&gt;要素</h2>
+          <p class="maintext">&lt;form&gt;要素は指定した範囲が<span>フォーム</span>であることを表す要素です。<br>
+          カテゴリ、コンテンツモデルは共にフローコンテンツですが、form要素の中にform要素を入れることはできません。<br>
+          ユーザーが情報を入力するフィールドや、クリックして選択するフィールドなどはform要素の中に配置されます。</p>
+          <h3 class="maintitle">action属性</h3>
+            <p class="maintext">&lt;form&gt;要素に記述する属性で、ユーザーが入力したデータを<span>どこに送信するかを指定する</span>属性です。<br>
+            例えばPHPファイルでデータを受け取り処理する場合は、属性値にその「.php」ファイルのパスを指定します。<br>
+            また、この属性を指定しないか、属性値を空にすると、自分自身（ＨＴＭＬファイル）に送信されます。<br>
+            </p>
+          <h3 class="maintitle">method属性</h3>
+            <p class="maintext">&lt;form&gt;要素に記述する属性で、データの<span>送信方法</span>を指定する属性で、属性値として<span>GETかPOST</span>を指定します。<br>
+            GETの場合は、送信先のURLにデータをくっつけて送るので、情報が丸見えになってしまいます。<br>
+            例えばGETで送信すると、URLを見るだけで登録したクレジットカードの番号などが簡単にわかってしまうことがあります。<br>
+            POSTの場合は、Httpというところにデータを入れて送信するので、通信を盗聴しようとしたりしない限りは情報が見えません。<br>
+            以上のことから、フォームなどの個人情報を送信する時の送信方法はPOSTを使います。</p>
+        <h2 class="maintitle">&lt;input&gt;要素</h2>
+          <p class="maintext">input要素は、&lt;form&gt;要素中で使われるテキストフィールドなどの<span>基本的な部品を作る要素</span>です。<br>
+          空要素なので、終了タグがいりません。</p>
+          <h3 class="maintitle">type属性</h3>
+            <p class="maintext">input要素には必ず<span>type</span>属性を指定して、どの部品を使うかを決める必要があります。<br>
+            属性値には、<mark>「text,password,radio,checkbox,submit」</mark>などがあります。<br>
+            textは、1行分のテキストフィールドが生成され、passwordは、textの入力される値が黒丸になります。<br>
+            radioは、複数の選択肢の中から一つを選ぶ（性別など）ラジオボタン、checkboxなら複数選択できるもの<br>
+            submitは送信ボタンなど、様々な属性値があります。</p>
+          <h3 class="maintitle">name属性</h3>
+            <p class="maintext">このようにtype属性で指定したら、その部品に、<span>name</span>属性で半角英数字で名前を付けます。<br>
+            一般的には、その入力項目で聞いていることを英語にして名前を付けます。<br>
+            <strong>          年齢→age       メールアドレス→e-mail   等</strong><br>
+            これは、入力されたデータがPHP等に送信されたときに、そのデータの質問内容を確認する際に必要になります。</p>
+          <h3 class="maintitle">value属性</h3>
+            <p class="maintext">最後にもう一つ、value属性を記述します。<br>
+            type属性がtextの時にvalueの属性値が「テキスト」だった場合、表示されるテキストボックスの中には最初から「テキスト」という文字が挿入されます。<br>
+            ※実際にはtextの場合はvalue属性は使わないことが多いです。<br>
+            radio,checkbox属性の時は、valueで値を指定することで、ユーザーが選択した部分の<span>送信されてくる値</span>を指定する事ができます。<br>
+            submitの場合は、ボタンの中の文字を表示できます。</p>
+        <h2 class="maintitle">&lt;textarea&gt;要素</h2>
+          <p class="maintext">複数入力できるテキストフィールドを表します。<br>
+          書き方が少し特殊で、基本開始タグと終了タグの間に文字列を入れません。<br>
+          ※文字を入れるとその文字があらかじめテキストフィールドに挿入されます。<br>
+          また、このtextarea要素にも、name属性を指定する必要があります。<br>
+          さらに、<mark>cols属性、rows属性</mark>という属性も必要に応じて指定します。</p>
+          <h3 class="maintitle">cols属性、rows属性</h3>
+          <p class="maintext">cols属性は「列」という意味で、<span>1行あたりに表示する大体の文字数を半角で指定するもの</span>です。<br>
+          cols属性をつけなかった場合、1行あたりの表示文字数が大体半角20文字くらいになります。<br>
+          rows属性は「行」という意味で、<span>テキストフィールドに表示される行数を指定するもの</span>です。<br>
+          行が少なくても文字はいくらでも入力できますが、テキストフィールドがスクロールバーで表示されるようになります。<br>
+          この属性も、つけなかった場合行は2行で表示されるようになります。</p>
+        <h2 class="maintitle">&lt;select&gt;要素</h2>
+          <p class="maintext">&lt;select&gt;要素は、その範囲が<span>セレクトボックス</span>であることを表します。<br>
+          セレクトボックスとは、選択式のメニューで、都道府県などを選択する時などに使うれるものです。<br>
+          ラジオボタンなどよりも小さいスペースで配置できるので、選択肢が多い時などに使えます。
+          この要素にもほかの要素と同様に、name属性で名前を付ける必要があります。<br>
+          コンテンツモデルとして、0個以上のoption要素、またはoptgroup要素が必要になります。</p>
+            <h3 class="maintitle">&lt;option&gt;要素</h3>
+            <p class="maintext">&lt;option&gt;要素は、セレクトボックスの<span>選択肢</span>を表します。<br>
+            箇条書きで使ったul要素とli要素の要領で、表示したい各選択肢をこのoption要素で挟みます。<br>
+            これもチェックボックスのようにvalue属性で送られてくる内容を入力しておく必要があります。</p>
+        <h2 class="maintitle">&lt;label&gt;要素</h2>
+            <p class="maintext">&lt;label&gt;要素は、コントロール部品の<span>ラベルのテキスト</span>を表す要素です。<br>
+            例えばチェックボックスなどで、「趣味」という枠で、「料理」という名目とボックスがあったとき、ボックスをクリックするとチェックが入りますが、<br>
+          　「料理」と書かれているテキストをクリックしてもチェックは入りません。<br>
+            そのテキストをラベルに指定することによって、テキストをクリックしてもチェックが入るようになります。<br>
+            使い方としては2通りあり、ラベルのテキストとそのコントロール部品を&lt;label&gt;タグで挟むパターンと、<br>
+            ラベルのテキストのみを&lt;label&gt;タグで挟んで、<span>for属性</span>というものでコントロール部品の<span>「id」</span>を指定する方法があります。<br>
+            後者の場合、そのコントロール部品には、id属性をつけておく必要があります。</p>
+        <h2 class="maintitle">使用例</h2>
+        <p class="souce_code_name">HTML</p>
+        <code>
+          <pre class="souce_code_box">
+            <ol class="souce_code">
+              <li>&lt;body&gt;</li>
+              <li>  &lt;form action="" method="post"&gt;</li>
+              <li>    &lt;dl&gt;</li>
+              <li>      &lt;dt&gt;&lt;label for="username" value="サンプル"&gt;お名前&lt;/label&gt;&lt;/dt&gt;</li>
+              <li>        &lt;dd&gt;&lt;input type="text" name="username" id="username"&gt;&lt;/dd&gt;</li>  
+              <li>      &lt;dt&gt;&lt;label for="login"&gt;新しいパスワード&lt;/label&gt;&lt;/dt&gt;</li> 
+              <li>        &lt;dd&gt;&lt;input type="password" name="loginpass"id="login"&gt;&lt;/dd&gt;</li>  
+              <li>      &lt;dt&gt;性別&lt;/dt&gt;</li> 
+              <li>        &lt;dd&gt;&lt;ul&gt;</li>   
+              <li>          &lt;li&gt;&lt;input type="radio" name="gender" value="男"&gt;男性&lt;/li&gt;</li>   
+              <li>          &lt;li&gt;&lt;input type="radio" name="gender" value="女"&gt;女性&lt;/li&gt;</li>    
+              <li>        &lt;/ul&gt;&lt;/dd&gt;</li>    
+              <li>      &lt;dt&gt;趣味&lt;/dt&gt;</li>  
+              <li>        &lt;dd&gt;&lt;/ul&gt;</li>                             
+              <li>          &lt;li&gt;&lt;label&gt;&lt;input type="checkbox" name="hobby" value="スポーツ"&gt;スポーツ&lt;/label&gt;&lt;/li&gt;</li>   
+              <li>         &lt;li&gt;&lt;label&gt;&lt;input type="checkbox" name="hobby" value="読書"&gt;読書&lt;/label&gt;&lt;/li&gt;</li>   
+              <li>        &lt;/ul&gt;&lt;/dd&gt;</li>  
+              <li>      &lt;dt&gt;経験してきた言語&lt;/dt&gt;</li>  
+              <li>        &lt;dd&gt;&lt;select name="lang"&gt;</li>  
+              <li>          &lt;option value="java"&gt;Java&lt;/option&gt;</li>      
+              <li>          &lt;option value="Py"&gt;Python&lt;/option&gt;</li>    
+              <li>          &lt;option value="Ruby"&gt;Ruby&lt;/option&gt;</li>    
+              <li>          &lt;option value="C"&gt;C&lt;/option&gt;</li>   
+              <li>          &lt;option value="PHP"&gt;PHP&lt;/option&gt;</li>    
+              <li>        &lt;/select&gt;&lt;/dd&gt;</li>    
+              <li>    &lt;/dl&gt;</li>  
+              <li>  &lt;/form&gt;</li>  
+              <li>&lt;/body&gt;</li>
+            </ol>
+          </pre>
+        </code>
+        <p class="souce_code_name">結果</p>
+        <code>
+          <pre class="souce_code_box">
+            <ol style="list-style-position: inside;">
+              <form method="post"> 
+                <dl>
+                  <dt><label for="username" value="サンプル">お名前</label></dt>            
+                    <dd><input type="text" name="username" id="username"></dd>            
+                  <dt><label for="login">新しいパスワード</label></dt>
+                    <dd><input type="password" name="loginpass"id="login"></dd>            
+                  <dt>性別</dt>            
+                    <dd><ul>             
+                      <li><input type="radio" name="gender" value="男">男性</li>             
+                      <li><input type="radio" name="gender" value="女">女性</li>                 
+                    </ul></dd>                  
+                  <dt>趣味</dt>               
+                    <dd></ul>                    
+                      <li><label><input type="checkbox" name="hobby" value="スポーツ">スポーツ</label></li>                 
+                      <li><label><input type="checkbox" name="hobby" value="読書">読書</label></li>                 
+                    </ul></dd>              
+                  <dt>経験してきた言語</dt>                     
+                    <dd><select name="lang">                 
+                      <option value="java">Java</option>                
+                      <option value="Py">Python</option>                
+                      <option value="Ruby">Ruby</option>                   
+                      <option value="C">C</option>                   
+                      <option value="PHP">PHP</option>                     
+                    </select></dd>                          
+                </dl>                                                      
+              </form>
+            </ol>
+          </pre>
+        </code>
+{% endblock %}

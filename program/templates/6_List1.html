@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}箇条書きについて{% endblock %}
+
+{% block tag %}
+        <div class="next_box">
+            <a href="{% url 'program:Lesson7' %}" class="next_lesson1">Lesson7</a>
+            <a href="{% url 'program:Lesson5' %}" class="back_lesson">Lesson5</a>
+        </div>
+{% endblock %}
+{% block content %}
+            <h1 class="title">Lesson6~箇条書きについて~</h1>
+                <img src="{% static 'cms/images/list.jpg' %}" alt="list_image" class="mainimage">
+                <p class="maintext">箇条書きには、項目の順番が決まっていない<span>「順不同型」</span>と順番が重要な<span>「番号順」</span>の箇条書きが存在します。</p>
+                <h2 class="maintitle">&lt;li&gt;要素</h2>
+                    <p class="maintext">&lt;li&gt;要素は、list item の略で<mark>リストの項目</mark>を表す要素です。<br>
+                    実際に記述すると、以下のようになります。
+                    <p class="souce_code_name">HTML</p>
+                    <code>
+                        <pre class="souce_code_box">
+                            <ol class="souce_code">
+                                <li class="leftline">   &lt;body&gt;</li>
+                                <li class="leftline">     &lt;p&gt;例&amp;nbsp;卵かけご飯の材料&lt;/p&gt;</li>
+                                <li class="leftline">       &lt;li&gt;卵&lt;/li&gt;</li>
+                                <li class="leftline">       &lt;li&gt;ごはん&lt;/li&gt;</li>
+                                <li class="leftline">       &lt;li&gt;醤油&lt;/li&gt;</li>
+                                <li class="leftline">   &lt;/body&gt;</li>
+                            </ol>
+                        </pre>
+                    </code>
+                    <p class="souce_code_name">結果</p>
+                    <code>
+                        <pre class="souce_code_box">
+                            <p>例&nbsp;卵かけごはんの材料</p>
+                            <li>卵</li>
+                            <li>ごはん</li>
+                            <li>醤油</li>
+                        </pre>
+                    </code>
+                    <p class="maintext">&lt;li&gt;のみでは、リストが順不同型なのか番号順の物なのかわからないので、それを示す要素が必要になります。</p>
+                <h2 class="maintitle">&lt;ul&gt;要素</h2>
+                    <p class="maintext">&lt;ul&gt;要素は、unorderd list の略で、<span>順不同のリスト</span>を示す要素で、
+                    カテゴリがフローコンテンツ、コンテンツモデルは０個以上のli要素です。<br>
+                    実際に記述すると、以下のようになります。</p>
+                    <p class="souce_code_name">HTML</p>
+                    <code>
+                        <pre class="souce_code_box">
+                            <ol class="souce_code">
+                                <li class="leftline">   &lt;body&gt;</li>
+                                <li class="leftline">     &lt;ul&gt;</li>
+                                <li class="leftline">       &lt;li&gt;卵&lt;/li&gt;</li>
+                                <li class="leftline">       &lt;li&gt;ごはん&lt;/li&gt;</li>
+                                <li class="leftline">       &lt;li&gt;醤油&lt;/li&gt;</li>
+                                <li class="leftline">     &lt;/ul&gt;</li>
+                                <li class="leftline">   &lt;/body&gt;</li>
+                                <li class="leftline">&lt;/html&gt;</li>
+                            </ol>
+                        </pre>
+                    </code>
+                    <p class="souce_code_name">結果</p>
+                    <code>
+                        <pre class="souce_code_box">
+                            <ul style="list-style-position: inside;">
+                            <li>卵</li>
+                            <li>ごはん</li>
+                            <li>醤油</li>
+                            </ul>
+                        </pre>
+                    </code>
+                    <p class="maintext">上記のように、ul要素を入れると、各リストの行頭に「・(行頭記号)」が自動的に入ります。</p>
+                <h2 class="maintitle">&lt;ol&gt;要素</h2>
+                    <p class="maintext">これはul要素とは逆で、orderd list の略で<mark>番号順のリスト</mark>を示す要素で、カテゴリなどはulと同じです。<br>
+                    HTMLの書き方も上記のulと同じです。</p>
+                    <p class="souce_code_name">HTML</p>
+                    <code>
+                        <pre class="souce_code_box">
+                            <ol class="souce_code">
+                                <li class="leftline">   &lt;body&gt;</li>
+                                <li class="leftline">     &lt;p&gt;卵かけごはんの作り方&lt;/p&gt;</li>
+                                <li class="leftline">     &lt;ol&gt;</li>
+                                <li class="leftline">       &lt;li&gt;ご飯をよそう&lt;/li&gt;</li>
+                                <li class="leftline">       &lt;li&gt;ごはんの上に卵を割る&lt;/li&gt;</li>
+                                <li class="leftline">       &lt;li&gt;醤油をかけて混ぜる&lt;/li&gt;</li>
+                                <li class="leftline">     &lt;/ol&gt;</li>
+                                <li class="leftline">   &lt;/body&gt;</li>
+                                <li class="leftline">&lt;/html&gt;</li>
+                            </ol>
+                        </pre>
+                    </code>
+                    <p class="souce_code_name">結果</p>
+                    <code>
+                        <pre class="souce_code_box">
+                            <p>例　卵かけごはんの作り方</p>
+                            <ol style="list-style-position: inside;">
+                                <li>ごはんをよそう</li>
+                                <li>ごはんの上に卵を割る</li>
+                                <li>醤油をかけて混ぜる</li>
+                            </ol>
+                        </pre>
+                    </code>
+                    <p class="maintext">ol項目を入れると、ページ上でリストの上から順番に数字が自動入力されます。</p>
+{% endblock %}

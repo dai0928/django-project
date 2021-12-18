@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}HTMLのバージョンについて{% endblock %}
+
+{% block tag %}
+<div class="next_box">
+    <a href="{% url 'program:Lesson2' %}" class="next_lesson1">Lesson2</a>
+    <a href="{% url 'program:main_menu' %}" class="back_lesson">トップページへ</a>
+</div>
+{% endblock %}
+{% block content %}
+
+            <h1 class="title">Lesson1&nbsp;~HTMLのバージョンについて~</h1>
+                <img src="{% static 'cms/images/doctype.jpg' %}" alt="doctype_image" class="mainimage", width="90%">
+                <p class="maintext">現在のサイトでよく使われているのはHTML5なのですが、<br>昔に作られたサイトや古いブラウザでは、HTMLのバージョンが低い場合もあります。<br></p>
+            <h1 class="maintitle">タグ、要素、属性について</h1>
+                <p class="maintext">これからHTMLを書いていく上で、タグや要素、属性という言葉がよく出てきます。<br>
+                    例えば、<br>
+                    <strong>&lt;p class="tag"&gt;これはpタグです&lt;/p&gt;</strong><br>
+                    というコードがあったとしたら、<br>
+                    &lt;p&gt;と&lt;/p&gt;が<span>タグ</span>、&lt;p&lt;から&lt;/p&gt;までの全ての文章が<span>要素</span>、
+                    「class="tag"」が<span>属性</span>となります。
+                </p>
+
+            <h1 class="maintitle">DOCTYPE宣言について</h1>
+                <p class="maintext">バージョンが変わると、使えるタグや属性などが変わってしまうので、今はどのバージョンのHTMLでコーディングしているか宣言する必要があります。<br>
+                HTMLにはバージョン毎に使用可能なタグ、属性などのルールが記述された「DTD」と呼ばれるファイルがあります。<br>
+                DTDのファイルは、<span>W3C</span>というHTMLの創設サイト内にあり、書きたいバージョンのDBDをサイトからコピーして、HTMLコードの最初に記述する必要があります。<br>
+                以上がDOCTYPE宣言となります。　ちなみにDOCTYPEは、「document type」 の略です。<br>
+                但し、HTML5にはDTDファイルが存在しない為、DOCTYPE宣言は必要ないのですが、ブラウザによってレイアウトが崩れることがあるので、
+                コードの冒頭に最低限のDOCTYPE宣言をしておくとよいでしょう。</p>
+            
+            <p class="souce_code_name">HTML</p>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li class="leftline">&lt;!DOCTYPE&nbsp;html&gt;</li>
+                    <li class="leftline">&lt;html lang='ja'&gt;</li>
+                    <li class="leftline">&lt;/html&gt;</li>
+                </ol>
+            </pre>
+                
+                <p class="maintext">※DOCTYPE宣言には大文字小文字を区別しないので、どちらで記述してもよい</p>
+
+{% endblock %}

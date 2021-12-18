@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}カテゴリとコンテンツモデル{% endblock %}
+
+{% block tag %}
+      <div class="next_box">
+         <a href="{% url 'program:Lesson3' %}" class="next_lesson1">Lesson3</a>
+         <a href="{% url 'program:Lesson1' %}" class="back_lesson">Lesson1</a>
+      </div>
+{% endblock %}
+{% block content %}
+         <h1 class="title">Lesson2&nbsp;~カテゴリとコンテンツモデル~</h1>
+         <img src="{% static 'cms/images/tag.jpg' %}" alt="utf_image" class="mainimage" >
+            <h2 class="maintitle">カテゴリ</h2>
+               <p class="maintext">HTML5の全ての要素は、全部で<span>７種類</span>のカテゴリに大別されています。それぞれの要素が、<span>０個以上のカテゴリ</span>に属していて、
+                  どのカテゴリにも属していない要素や、複数のカテゴリに属している要素があります。
+               </p>
+               <ul class="list">
+                  <li><mark>メタデータコンテンツ</mark></li>
+                  <li><mark>フローコンテンツ</mark></li>
+                  <li><mark>セクショニングコンテンツ</mark></li>
+                  <li><mark>ヘディングコンテンツ</mark></li>
+                  <li><mark>フレージングコンテンツ</mark></li>
+                  <li><mark>エンベディッドコンテンツ</mark></li>
+                  <li><mark>インタラクティブコンテンツ</mark></li>
+               </ul>
+            <h2 class="maintitle">コンテンツモデル</h2>
+               <p class="maintext">要素の中に配置できる要素（子要素）を<span>コンテンツ・モデル</span>といいます。例えば、</p>
+               <p class="souce_code_name">HTML</p>
+               <code>
+                   <pre class="souce_code_box">
+                       <ol class="souce_code">
+                           <li class="leftline">&lt;p&gt;pのコンテンツモデルは&lt;em&gt;「フレージングコンテンツ」&lt;em&gt;です。&lt;p&gt;</li>
+                       </ol>
+                   </pre>
+               </code>
+               <p class="maintext">この場合は、&lt;p&gt;のコンテンツモデルはフレージングコンテンツで、&lt;em&gt;のカテゴリもフレージングコンテンツなので、
+                  &lt;p&gt;の中に配置することができます。逆にカテゴリがフレージングコンテンツでない要素は配置することができません。
+               </p>
+               <br>
+               <p class="maintext">コンテンツモデルには、ほとんどの場合、上記で説明した<em>７種類のカテゴリ</em>で指定されるのですが、要素名が直接指定されるものもあります。
+               </p>
+{% endblock %}

@@ -3,7 +3,6 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
         <title>エモ吉のプログラミング基礎講座</title>
         <link rel="stylesheet" href="{% static 'cms/login.css'%}" type=text/css>
     </head>
@@ -12,9 +11,9 @@
             エモ吉のプログラミング基礎講座
         </h1>
         <div class="back-base">
-            <a href="{% url 'program:index' %}" class="back"><span>＜</span></a>
+            <a href="{% url 'index' %}" class="back"><span>＜</span></a>
         </div>
-        <form method="post" action="{% url 'program:create_account' %}">
+        <form method="post" >
             <div class="create-user">
                 {% csrf_token %}
                 <dl class="create-box">
@@ -22,11 +21,17 @@
                         <dd class="create-text">{{ form.username }}
                         <span class="error-text">{{ form.username.errors }}</span></dd>
                     </label>
+
+                    <label><dt class="create-name">email</dt>
+                        <dd class="create-text">{{ form.email }}
+                        <span class="error-text">{{ form.email.errors }}</span></dd>
+                    </label>
+                    
                     <label><dt class="create-name">パスワード</dt>
                         <dd class="create-text">{{ form.password1 }}
                         <span class="error-text">{{ form.password1.errors }}</span></dd>
                     </label>
-                    
+        
                     <label><dt class="create-name">パスワード（確認）</dt>
                         <dd class="create-text" id="pass2">{{ form.password2 }}
                         <span class="error-text">{{ form.password2.errors }}</span></dd>

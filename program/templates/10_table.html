@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}表について{% endblock %}
+
+{% block tag %}
+      <div class="next_box">
+         <a href="{% url 'program:Lesson11' %}" class="next_lesson1">Lesson11</a>
+         <a href="{% url 'program:Lesson9' %}" class="back_lesson">Lesson8</a>
+      </div>
+{% endblock %}
+{% block content %}
+            <h1 class="title">Lesson10 ~表について~</h1>
+               <img src="{% static 'cms/images/table.jpeg' %}" alt="table_image" class="mainimage">
+               <h2 class="maintitle">&lt;table&gt;要素</h2>
+                  <p class="maintext">&lt;table&gt;要素は、<span>「表」</span>を表す要素です。
+                  コンテンツモデルが少し難しいので、後程紹介します。</p>
+               <h2 class="maintitle">&lt;tr&gt;要素</h2>
+                  <p class="maintext">&lt;tr&gt;要素はtable&nbsp;row&nbsp;の略で上記の表の<span>「行」</span>を表します。<br>
+                  コンテンツモデルが０個以上のth又はtd要素となっており、表のセルに関するの要素しか使えない仕様になっています。</p>
+               <h2 class="maintitle">&lt;th&gt;要素</h2>
+                  <p class="maintext">&lt;th&gt;要素はtable　header　cellの略で、列又は行の<span>見出しセル</span>を表します。</p>
+               <h2 class="maintitle">&lt;td&gt;要素</h2>
+                  <p class="maintext">&lt;td&gt;要素はtable&nbsp;data&nbsp;cell&nbsp;の略で、見出しに対し<span>内容のセル</span>を表します。</p>
+               <p class="maintext">以上が表で使われる基本的な要素になります。</p>
+               <h2 class="maintitle">ヘッダーやフッターを表す要素</h2>
+                  <p class="maintext">例えば表の内容が増えて表の内容が2ページ以上になった場合、上記の要素で作ったテーブルでは、<br>
+                  見出しセルが1ページ目にしか表示されないので、2ページ目以降の項目がわかりにくくなります。<br>
+                  そこで、表のヘッダー部分、内容の部分を記述することで、2ページ目以降でも見出しを表示させることができるようになります。</p>
+               <h2 class="maintitle">&lt;thead&gt;要素</h2>
+                  <p class="maintext">&lt;thead&gt;要素はtable&nbsp;header&nbsp;の略で、<span>見出し行</span>を表します。</p>
+               <h2 class="maintitle">&lt;tbody&gt;要素</h2>
+                  <p class="maintext">&lt;tbody&gt;要素はtable&nbsp;body&nbsp;の略で、<span>内容の行</span>を表します。</p>
+               <h2 class="maintitle">&lt;tfoot&gt;要素</h2>
+                  <p class="maintext">&lt;tfoot&gt;要素はtable&nbsp;footer&nbsp;の略で、<span>フッターの行</span>を表します。<br>
+                  フッターは、例えばテストの点数の表で一番下の行に合計のセルを入れたい場合などに使ったりします。</p><br><br>
+               <p class="maintext">ここまでが表のヘッダーなどを表す要素になります。<br>
+               以上を踏まえたうえで、table要素のコンテンツモデルは、</p>
+               <ol class="list">
+                  <li>任意で1つのthead要素</li>
+                  <li>それに続く1つ以上のtbody要素　又は　tr要素</li>
+                  <li>それに続く、任意で1つ以上のtfoot要素</li>
+               </ol>
+               <p class="maintext">になります。</p>
+
+               <h2 class="maintitle">使用例</h2>
+               <p class="souce_code_name">HTML</p>
+               <code>
+                  <pre class="souce_code_box">
+                     <ol class="souce_code">
+                        <li>&lt;body&gt;</li>
+                        <li>  &lt;table border="1"&gt;</li>
+                        <li>     &lt;thead&gt;</li>
+                        <li>        &lt;tr&gt;</li>
+                        <li>         &lt;th&gt;表に使う要素&lt;/th&gt;</li>
+                        <li>         &lt;th&gt;要素の意味&lt;/th&gt;</li>
+                        <li>         &lt;th&gt;カテゴリ&lt;/th&gt;</li>
+                        <li>         &lt;th&gt;コンテンツモデル&lt;/th&gt;</li>
+                        <li>        &lt;/tr&gt;</li> 
+                        <li>     &lt;/thead&gt;</li>
+                        <li>     &lt;tbody&gt;</li> 
+                        <li>        &lt;tr&gt;</li>
+                        <li>           &lt;td&gt;table&lt;/td&gt;</li>
+                        <li>           &lt;td&gt;「表」を表す&lt;/td&gt;</li>
+                        <li>           &lt;td&gt;フローコンテンツ&lt;/td&gt;</li>
+                        <li>           &lt;td&gt;&lt;ol&gt;</li>
+                        <li>              &lt;li&gt;任意で1つのthead要素&lt;/li&gt;</li> 
+                        <li>              &lt;li&gt;それに続く1つ以上のtbody要素　又は　tr要素&lt;/li&gt;</li>
+                        <li>              &lt;li&gt;それに続く、任意で1つ以上のtfoot要素&lt;/li&gt;</li>
+                        <li>           &lt;/ol&gt;&lt;/td&gt;</li> 
+                        <li>        &lt;/tr&gt;</li> 
+                        <li>     &lt;/tbody&gt;</li> 
+                        <li>  &lt;/table&gt;</li> 
+                        <li>&lt;/body&gt;</li>
+                     </ol>
+                  </pre>
+               </code>
+               <p class="souce_code_name">結果</p>
+               <code>
+                   <pre class="souce_code_box">
+                     <table border="1">
+                        <thead>
+                           <tr>
+                              <th>表に使う要素</th>
+                              <th>要素の意味</th>
+                              <th>カテゴリ</th>
+                              <th>コンテンツモデル</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <tr>
+                              <td>table</td>
+                              <td>「表」を表す</td>
+                              <td>フローコンテンツ</td>
+                              <td><ol style="list-style-position: inside;">
+                                 <li>任意で1つのthead要素</li>
+                                 <li>それに続く1つ以上のtbody要素　又は　tr要素</li>
+                                 <li>それに続く、任意で1つ以上のtfoot要素</li>
+                              </ol></td>
+                           </tr>
+                        </tbody>
+                     </table>
+{% endblock %}

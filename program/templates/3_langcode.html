@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}head要素・文字化けの原因{% endblock %}
+
+{% block tag %}
+        <div class="next_box">
+            <a href="{% url 'program:Lesson4' %}" class="next_lesson1">Lesson4</a>
+            <a href="{% url 'program:Lesson2' %}" class="back_lesson">Lesson2</a>
+        </div>
+{% endblock %}
+{% block content %}
+            <h1 class="title">Lesson3&nbsp;~head要素・文字化けの原因~</h1>
+                <img src="{% static 'cms/images/utf.jpg' %}" alt="utf_image" class="mainimage">
+                <h2 class="maintitle">head要素</h2>
+                <p class="maintext">HTMLは、大まかに<mark>&lt;html&gt;&lt;head&gt;&lt;body&gt;</mark>の３つの要素で構成されます。<br>
+                html要素は全ての要素の親要素となり、内容がHTML文章であることを指定します。<br>
+                head要素では、そのHTML文書全体に関する指定や、&lt;title&gt;要素でページのタイトルを指定したりします。<br>
+                body要素では、そのページの文章の本文を記述します。</p>
+                <h2 class="maintitle">文字コード</h2>
+                <p class="maintext">htmlは文字に数値が割り当てられており、これを<span>文字コード</span>と言います。<br>
+                テキストエディタ（コードを書くもの　VS-CODEなど）と表示するブラウザごとに違う文字コードが存在し、テキストエディタの文字コードとブラウザの文字コードが違った場合
+                文字化けが起きてしまいます。</p>
+                <h2 class="maintitle">対応策</h2>
+                <p class="maintext">htmlにて文字コードを指定する必要があります。
+                &lt;meta cgaraset=''&gt; が指定するコードとなります。<br>
+                ＝のあとは、使っているテキストエディタの文字コードを指定します。</p>
+                <p class="souce_code_name">HTML</p>
+                <code>
+                    <pre class="souce_code_box">
+                        <ol class="souce_code">
+                            <li class="leftline">&lt;!DOCTYPE&nbsp;html&gt;</li>
+                            <li class="leftline">&lt;html lang='ja'&gt;</li>
+                            <li class="leftline">   &lt;head&gt;</li>
+                            <li class="leftline">       &lt;meta&nbsp;charaset='UTF-8'&gt;</li>
+                            <li class="leftline">       &lt;title&gt;metaタグによる文字コードの指定&lt;/title&gt;</li>
+                            <li class="leftline">   &lt;/head&gt;</li>
+                            <li class="leftline">&lt;/html&gt;</li>
+                        </ol>
+                    </pre>
+                </code>
+{% endblock %}

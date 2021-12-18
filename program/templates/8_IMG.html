@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}画像表示{% endblock %}
+
+{% block tag %}
+      <div class="next_box">
+         <a href="{% url 'program:Lesson9' %}" class="next_lesson1">Lesson9</a>
+         <a href="{% url 'program:Lesson7' %}" class="back_lesson">Lesson7</a>
+      </div>
+{% endblock %}
+{% block content %}
+         <h1 class="title">Lesson8　~画像表示~</h1>
+            <img src="{% static 'cms/images/img.jpg' %}" alt="img_image" class="mainimage">
+            <h2 class="maintitle">&lt;img&gt;要素</h2>
+               <p class="maintext">&lt;img&gt;要素は、<span>画像</span>を表示させる要素です。<br>
+               この要素に、<span>src（ソース）属性</span>で属性値として表示したい画像のパスを指定する事によって画像を表示させることができます。<br>
+               また、<span>alt（オルト）属性</span>を使って何らかの理由で画像が表示できなくなった場合に表示される代替えテキストとなる属性値を指定できます。<br>
+               この属性は、目の不自由な人に対して音声読み上げソフトが画像の内容を読み上げてくれるという利点もあります。</p>
+            <h2 class="maintitle">使用例</h2>
+               <p class="souce_code_name">HTML</p>
+               <code>
+                  <pre class="souce_code_box">
+                     <ol class="souce_code">
+                        <li class="leftline">&lt;body&gt;</li>
+                        <li class="leftline">   &lt;img src="../HTML画像表示用/犬.jpeg" alt="犬の画像"&nbsp;width="140" height="140"&gt;</li>
+                        <li class="leftline">&lt;/body&gt;</li>
+                     </ol>
+                  </pre>
+               </code>
+               <p class="souce_code_name">結果</p>
+               <code>
+                  <pre class="souce_code_box">
+                     <img src="{% static 'cms\images\dog.jpeg' %}" alt="犬の画像" width="140" height="140" style="position: relative; right: 50%;">
+                  </pre>
+               </code>
+               <p class="maintext">上記にはwidth属性とheight属性が追加されていますが、<br>
+               width属性は、画像の横幅をピクセル単位で指定するもので、属性値に指定したい数値のみをいれます。<br>
+               height属性はその縦幅の指定です。</p>
+{% endblock %}

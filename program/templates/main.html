@@ -3,26 +3,30 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
-        <title>エモ吉のHTML基礎講座</title> 
+        <title>エモ吉のプログラミング基礎講座</title> 
         <link rel="stylesheet" href="{% static 'cms/main.css'%}" type=text/css>
     </head>
     <body class="back">
         <header class="head">
             <div class=fontbox>
-                <p class="hyper"><br>{{ user.username }}さん</p>
+                {% if user.id %}
+                <h1 class="hyper"><br>{{ user.username }}</h1>
+                {% else %}
+                <h1 class="hyper"><br>Guest User</h1>
+                {% endif %}
                 <h1 class="headtext">
-                    ～エモ吉のHTML基礎講座～
+                    EMO.Program
                 </h1>
                 <input type="checkbox" class="box" id="check">
                 <label for="check" class="manu" id="boxlabel"><span></span></label>
                 <div class="menu-box">
                     <ul class="list-box">
-                        <li class="listmanu"><a href="{% url 'program:index' %}" class="button1">HOME</a></li>
-                        <li class="listmanu"><a href="{% url 'program:login' %}" class="button1">ログイン</a></li>
-                        <li class="listmanu"><a href="{% url 'program:create_account' %}" class="button1">会員登録</a></li>
-                        <li class="listmanu"><a href="#" class="button1">会社概要</a></li>
-                        <li class="listmanu"><a href="#" class="button1">お問い合わせ</a></li>
+                        <li class="listmanu"><a href="#" class="button1">HOME</a></li>
+                        <li class="listmanu"><a href="{% url 'login' %}" class="button1">ログイン</a></li>
+                        <li class="listmanu"><a href="{% url 'create' %}" class="button1">会員登録</a></li>
+                        {% if user.is_authenticated %}
+                        <dt class="listmanu"><a href="{% url 'delete' user.username %}" class="button1">退会</a></dt>
+                        {% endif %}
                     </ul>
                 </div>
                    
@@ -31,11 +35,12 @@
         <main class="i-main">
             <div class="hero">
                 <img src="{% static 'cms/images/htmlpic.jpg'%}" alt="htmlimage" class="image">
-                <p>
-                    この講座は、私ことエモ吉が<br>
-                    これまでに学習したHTMLの使い方をまとめたものです。
-                </p>
             </div>
+            <p class="emokiti">
+                    この講座は、私ことエモ吉が、これまでに学習した<br>
+                    　HTMLやCSS、Pythonの使い方をまとめたものです。
+            </p>
+            
             <div class="top-head">
 
             </div>
@@ -67,23 +72,75 @@
                 <label for="check2" class="menu2" id="boxlabel2"><span></span></label>
                 <div class="lesson-box">
                     <ol class="lesson-list">
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson1&nbsp;～HTMLのバージョン～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson2&nbsp;～文字コードの設定～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson3&nbsp;～BODY要素～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson4&nbsp;～要素の配置ルール～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson5&nbsp;～特殊文字、改行～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson6&nbsp;～箇条書き～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson7&nbsp;～用語説明型リスト～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson8&nbsp;～画像の表示～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson9&nbsp;～ハイパーリンク～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson10&nbsp;～表～</a></li>
-                        <li class="lesson-no"><a href="#" class="lesson-link">Lesson11&nbsp;～フォーム～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson1' %}" class="lesson-link">Lesson1&nbsp;～HTMLのバージョン～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson2' %}" class="lesson-link">Lesson2&nbsp;～カテゴリとコンテンツモデル～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson3' %}" class="lesson-link">Lesson3&nbsp;～head要素・文字化けの原因～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson4' %}" class="lesson-link">Lesson4&nbsp;～bodyにおける要素～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson5' %}" class="lesson-link">Lesson5&nbsp;～特殊文字、改行～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson6' %}" class="lesson-link">Lesson6&nbsp;～箇条書きについて～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson7' %}" class="lesson-link">Lesson7&nbsp;～用語説明型リストについて～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson8' %}" class="lesson-link">Lesson8&nbsp;～画像表示～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson9' %}" class="lesson-link">Lesson9&nbsp;～ハイパーリンク～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson10' %}" class="lesson-link">Lesson10&nbsp;～表について～</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Lesson11' %}" class="lesson-link">Lesson11&nbsp;～フォームについて～</a></li>
                     </ol>
                 </div>
 
                 
                     
             </div>
+
+            <div class="css_top-body">
+                <h2 class="h2main">CSSとは？</h2>
+                <p class="ptag1">CSSとは、
+                    <ruby>
+                        <rb>Cascading&nbsp;</rb>
+                        <rt>カスケーディング</rt>
+                        <rb>Style&nbsp;</rb>
+                        <rt>スタイル</rt>
+                        <rb>Sheets&nbsp;</rb>
+                        <rt>シート</rt>
+                    </ruby>の略で、<br>
+                    HTMLでマークアップした文章に色をつけたりして装飾することができます。
+                    <br>
+                 </p>
+            </div>
+
+            <div class="middle-body">
+                <h2 class="h2main">CSS講座</h2>
+                <p class="ptag1">以下のリンクから講座を受講してみましょう！</p> 
+                <input type="checkbox" class="box2" id="css_check2">
+                <label for="css_check2" class="css_menu2" id="boxlabel2"><span></span></label>
+                <div class="css_lesson-box">
+                    <ol class="lesson-list">
+                        <li class="lesson-no"><a href="{% url 'program:Css_Lesson' %}" class="lesson-link">CSSの基礎</a></li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <div class="py_top-body">
+                 <h2 class="h2main">Pythonとは？</h2>
+                 <p class="ptag1">Pythonとは、プログラミング言語で、<br>
+                        数ある言語の中でもできることが非常に多いことで知られています。<br>
+                        WEB開発や人工知能の開発、データ分析などできることは様々です！<br>
+                        私が一番最初に学び始めたのはPythonでした。
+                 </p>
+            </div>
+    
+            <div class="middle-body">
+                <h2 class="h2main">Python講座</h2>
+                <p class="ptag1">以下のリンクから順番に講座を受講してみましょう！</p> 
+                <input type="checkbox" class="box2" id="py_check2">
+                <label for="py_check2" class="py_menu2" id="boxlabel2"><span></span></label>
+                <div class="py_lesson-box">
+                    <ol class="lesson-list">
+                        <li class="lesson-no"><a href="{% url 'program:Python' %}" class="lesson-link">Python環境構築</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Python_Lesson' %}" class="lesson-link">pythonの基礎文法</a></li>
+                        <li class="lesson-no"><a href="{% url 'program:Scraping' %}" class="lesson-link">webスクレイピングの部屋</a></li>
+                    </ol>
+                </div>
+
 
             <footer class="foot">
                 

@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Pythonの基礎文法{% endblock %}
+
+{% block tag %}
+<div class="next_box">
+    <a href="{% url 'program:Scraping' %}" class="next_lesson1">スクレイピングの部屋</a>
+    <a href="{% url 'program:Python' %}" class="back_lesson">Python環境構築</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="title">Pythonの基礎文法</h1>
+    <img src="{% static 'cms/images/python_tag.jpg' %}" alt="pythonimage" class="mainimage" width="90%" height="400">
+    <p class="maintext">まずは、前回ダウンロードしたテキストエディタを開きます。<br>
+        そうしたら、好きなフォルダに「test.py」というファイルを作りましょう。<br>
+        ※Pythonの拡張子は.pyになります。<br>
+        そしたらそのテキストエディタで、test.pyを開きましょう。
+        </p>
+    <h2 class="maintitle">Hello World!</h2>
+        <p class="maintext">Pythonで、hello world!を実行してみましょう。<br>
+        エディタで開いている.pyのファイルに次のように記述します。</p>
+        <p class="souce_code_name">test.py</p>
+        <code>
+          <pre class="souce_code_box">
+            <ol class="souce_code">
+              <li>print("hello world!")</li>
+            </ol>
+          </pre>
+        </code>
+
+        <p class="maintext">そしたら、そのファイルを実行してみましょう。<br>
+        まず、Windowsを使用しているなら「Windows Power Shell」、<br>
+        Macの場合は「ターミナル」を開いて、</p>
+        
+        <code>
+            <pre class="souce_code_box">
+              <ol class="souce_code">
+                <li>cd 〇〇</li>
+              </ol>
+            </pre>
+          </code>
+        
+          <p class="maintext">〇〇にtest.pyのファイルがあるフォルダのパスを入れて実行し、<br>
+            そこで、
+          </p>
+          <code>
+            <pre class="souce_code_box">
+              <ol class="souce_code">
+                <li>python test.py</li>
+              </ol>
+            </pre>
+          </code>
+
+          <p class="maintext">で実行します。そうしたら、</p>
+          <code>
+            <pre class="souce_code_box">
+              <ol class="souce_code">
+                <li>python test.py</li>
+                <li>hello world!</li>
+              </ol>
+            </pre>
+          </code>
+
+          <p class="maintext">と帰ってきます。<br>
+          <span>「print()」</span>とは、pythonの関数で、()内に入力された情報をコマンドラインに返します。<br>
+          今回のように<span>ただの文字列</span>を入力する際は、「" "」か「' '」の中に記述する必要があります。</p>
+
+        <h2 class="maintitle">変数</h2>
+            <p class="souce_code_name">test.py</p>
+            <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>a = "emokiti"</li>
+                    <li>print(a)</li>
+                </ol>
+            </pre>
+            </code>
+
+            <p class="maintext">上記のように、書くと、「a」は「emokiti」という文字列を持った<span>変数</span>となります。<br>
+            これを実行すると、</p>
+            <code>
+                <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>python test.py</li>
+                    <li>emokiti</li>
+                </ol>
+                </pre>
+            </code>
+            <p class="maintext">と帰ってきます。<br>
+            この「変数」は、使いまわしたい文字列や値を格納する事で、簡単に引き出すことができます。</p>
+
+        <h2 class="maintitle">if文</h2>
+            <p class="souce_code_name">test.py</p>
+            <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>a_length = 160</li>
+                    <li>if a_length &lt; 150:</li>
+                    <li>    print("small boy")</li>
+                    <li>elif a_length &gt; 190:</li>
+                    <li>    print("big boy!")</li>
+                    <li>else:</li>
+                    <li>    print("nomal boy")</li>
+                </ol>
+            </pre>
+            </code>
+            <p class="maintext">このファイルを実行すると、</p>
+            <code>
+                <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>python test.py</li>
+                    <li>noaml boy</li>
+                </ol>
+                </pre>
+            </code>
+            <p class="maintext">と出力されます。説明すると、
+                「もしa_lengthの値が<span>150より小さかったら</span>small boyと出力」<br>
+                「<span>もし190よりも大きかったら</span>big boy!と出力」<br>
+                「<span>そうでなければ（150~190ならば）</span>nomal boyと出力」<br>
+                といった意味になります。if文とは、このように、<br>
+                「もし〇ならば▲（if）、★ならば■（elif）、どちらでもなければ◇（else）」<br>
+                といったように条件をつけて結果を分岐させることができます。
+            </p>
+
+        <h2 class="maintitle">関数の定義</h2>
+            <p class="souce_code_name">test.py</p>
+            <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>def emokiti(arg):</li>
+                    <li>    emokiti_weight = arg</li>
+                    <li>    if emokiti_weight &lt; 50:</li>
+                    <li>        print("small boy")</li>
+                    <li>    else:</li>
+                    <li>        print("big boy")</li>
+                    <li>print(emokiti(60))</li>
+                </ol>
+            </pre>
+            </code>
+            <code>
+                <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>python test.py</li>
+                    <li>big boy</li>
+                </ol>
+                </pre>
+            </code>
+            <p class="maintext">上記のように、「def」を使うと、指定した単語に複数のコードを追加し、<br>
+                関数を作り上げることができます。「arg」とは、引数のことで、定義した関数を呼び出す際に、<br>
+                （）内に値を入れると、その値から関数を実行してくれます。
+            </p>
+        <h2 class="maintitle">リスト、for文</h2>
+            <p class="souce_code_name">test.py</p>
+            <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>program_list = ["python", "javascript", "PHP", "C"]</li>
+                    <li>print(program_list)</li>
+                    <li>print(program_list[0])</li>
+                    <li>    for item in program_list:</li>
+                    <li>        print(item)</li>
+                </ol>
+            </pre>
+            </code>
+            <code>
+                <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>python test.py</li>
+                    <li>["python", "javascript", "PHP", "C"]</li>
+                    <li>python</li>
+                    <li>javascript</li>
+                    <li>PHP</li>
+                    <li>C</li>
+                </ol>
+                </pre>
+            </code>
+            <p class="maintext">1行目のように、[]の中に「,（カンマ）」で区切った複数の値を変数として持たせることができ、<br>
+            このようなものを<span>「リスト」</span>といいます。<br>
+            リストは、左から、０，１，２，３という順番となっており、変数を呼び出す際に後ろに[]で数字を指定する事で、<br>
+            その順番の値を呼び出すことができます。<br>
+            3行目のように、<span>for 〇〇(好きな文字列) in □□(リスト)</span>と書くことで、設定した文字列を呼び出すと、０から順番にリストの値を1つずつ取り出すことが可能です。
+            </p>
+
+        <h2 class="maintitle">class、インスタンス</h2>
+            <p class="souce_code_name">test.py</p>
+            <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>class Card:</li>
+                    <li>    def __init__(self, name, age, gender)</li>
+                    <li>        self.name = name</li>
+                    <li>        self.age = age</li>
+                    <li>        self.gender = gender</li>
+                    <li>                        </li>
+                    <li>    def person(self):</li>
+                    <li>        print(self.name + "さんは" + self.age + "歳の" + self.gender + "性です")</li>
+                    <li>                        </li>
+                    <li>emo = Card("エモ吉", "25", "男")</li>
+                    <li>print(emo.name)</li>
+                    <li>print(emo.age)</li>
+                    <li>print(emo.gender)</li>
+                    <li>print(emo.person())</li>
+                </ol>
+            </pre>
+            </code>
+            <code>
+                <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>python test.py</li>
+                    <li>エモ吉</li>
+                    <li>25</li>
+                    <li>男</li>
+                    <li>エモ吉さんは25歳の男性です</li>
+                </ol>
+                </pre>
+            </code>
+            <p class="maintext">この「クラス」というものは、よく<span>「設計書」</span>に例えられます。<br>
+            上記の例だと、クラス「Card」の中には、<span>「名前(name)、年齢(age)、性別(gender)」</span>といった1人の人物を構成<br>
+            するための情報を格納することができます。つまり「Card」は1人の人物を設計するための設計書といえます。<br>
+            このクラスを元に作成した10行目の「emo」を<span>「インスタンス」</span>と呼びます。<br>
+            2行目の関数は<span>「コンストラクタ」</span>といい、インスタンスを生成する際に呼び出される関数です。<br>
+            コンストラクタの第１引数には、必ず「self」を指定して、以降に設定したい情報を引数として指定します。<br>
+            コンストラクタの働きは、例えば１０行目のようにクラスが呼び出されると、コンストラクタの引数として指定されていた<br>
+            「name, age, gender」が初期化され、代わりに「"エモ吉", "25", "男"」が引数に代入されます。<br>
+            第１引数で指定されていた「self」は「自身」という意味で、「emo.name」だと「emoのインスタンス自身が持っているname部分」<br>
+            ということになります。
+            </p>
+
+        <h2 class="maintitle">import文</h2>
+            <p class="maintext">importを使うと、外部から既に機能をまとめられた関数を使えるようになります。<br>
+                例えば、WEBスクレイピングのプログラムを組む場合は、「Selenium」や「BeautifulSoup」などといった<br>
+                WEBスクレイピングをする為の機能が既にまとめられた「ライブラリ」を使うことによって、簡単にWEBスクレイピング<br>
+                のプログラムを組むことができます。
+            </p>
+            <p class="souce_code_name">test.py</p>
+            <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li>import chromedriver_binary</li>
+                    <li>from selenium import webdriver</li>
+                    <li>import random as rd</li>
+                    <li>from .test import *</li>
+                </ol>
+            </pre>
+            </code>
+            <p class="maintext">2行目のfrom~は、「selenium」というライブラリから「webdriver」のみをインポートする<br>
+            という意味で、 3行目のas~は、「random」というモジュールを「rd」としてインポートするという意味になります。<br>
+            4行目は値に*（アスタリスク）を指定することで、.testの中の全ての関数をインポートするという意味になります。
+            </p>
+
+{% endblock %}

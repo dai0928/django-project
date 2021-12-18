@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}css基礎講座{% endblock %}
+
+{% block tag %}
+<div class="next_box">
+    <a href="{% url 'program:main_menu' %}" class="next_lesson">トップページへ</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="title">cssについて</h1>
+    <img src="{% static 'cms/images/css.jpg' %}" alt="cssimage" class="mainimage" width="90%" height="400">
+    <p class="maintext">前回まではHTMLの講座をしていましたが、この「css」を使うことによって、<br>
+    HTMLで書いた<span>文字のフォントを変えてみたり</span>、<span>ページの背景に枠をつけてみたり</span>、ボタンの上に
+    カーソルを持っていくとその<span>ボタンに動きをつけたり</span>などいろいろなことが出来るようになります。<br>
+    </p>
+    <h2 class="maintitle">cssの指定方法</h2>
+        <p class="maintext">cssの指定には<span>「別にcss専用の外部ファイルを作り、そのファイルをHTMLファイルで指定する方法</span>と
+        <span>「HTMLに直接記述する方法」</span>の２種類存在します。
+        </p>
+    <h2 class="maintitle">外部ファイルを指定する方法</h2>
+        <p class="maintext">HTMLのファイルは、拡張子が「.html」でしたが、cssのみを記述したファイルの拡張子は「.css」となります。<br>
+        新たにcssファイルを作成して、HTMLファイルで、<span>&lt;link&gt;タグ</span>でそのcssファイルを指定することができます。<br>
+        実際に記述すると、以下のようになります。
+        </p>
+        <p class="souce_code_name">HTML</p>
+        <code>
+            <pre class="souce_code_box">
+                <ol class="souce_code">
+                    <li class="leftline">   &lt;head&gt;</li>
+                    <li class="leftline">     &lt;mata charaset="UTF-8"&gt;</li>
+                    <li class="leftline">       &lt;link rel="stylesheet" href="static/main.css" type=text/css&gt;</li>
+                    <li class="leftline">   &lt;/head&gt;</li>
+                </ol>
+            </pre>
+        </code>
+        <p class="maintext">HTMLの&lt;a&gt;要素でもやったように、「href」属性を使って、cssファイルまでのパスを指定しています。</p>
+    <h2 class="maintitle">cssの書き方</h2>
+        <h3 class="subtitle">style属性でHTMLの要素に記述する</h3>
+            <p class="maintext">まず、&lt;p&gt;要素や&lt;h1&gt;要素や&lt;body&gt;要素などに、<span>style属性</span>で指定する方法です。<br>
+            ;（セミコロン）で区切ることによって、複数のcssを書くことが可能です。</p>
+            <p class="souce_code_name">HTML</p>
+            <code>
+                <pre class="souce_code_box">
+                    <ol class="souce_code">
+                        <li class="leftline">   &lt;body&gt;</li>
+                        <li class="leftline">     &lt;h1 style="color: red; font-size: 30px;"&gt;</li>
+                        <li class="leftline">     この文章にはCSSを当てています。</li>
+                        <li class="leftline">     &lt;/h1&gt;</li>
+                        <li class="leftline">   &lt;/body&gt;</li>
+                    </ol>
+                </pre>
+            </code>
+            <p class="souce_code_name">結果</p>
+            <code>
+                <pre class="souce_code_box">
+                    <h1 style="color: red; font-size: 30px; text-align: left;">この文章にはCSSを当てています。</h1>
+                </pre>
+            </code>
+        <h3 class="subtitle">&lt;head&gt;要素内に&lt;style&gt;要素で記述する</h3>
+            <p class="maintext">この方法で記述すると、複数の要素を指定して一括でcssを当てたりすることができます。</p>
+            <p class="souce_code_name">HTML</p>
+            <code>
+                <pre class="souce_code_box">
+                    <ol class="souce_code">
+                        <li class="leftline">   &lt;head&gt;</li>
+                        <li class="leftline">     &lt;style type="text/css"&gt;</li>
+                        <li class="leftline">     h1 {</li>
+                        <li class="leftline">         color: red;</li>
+                        <li class="leftline">         font-size: 30px;</li>
+                        <li class="leftline">        }</li>
+                        <li class="leftline">     &lt;/style&gt;</li>
+                        <li class="leftline">   &lt;/head&gt;</li>
+                        <li class="leftline">   &lt;body&gt;</li>
+                        <li class="leftline">     &lt;h1&gt;この文章にはCSSを当てています。&lt;/h1&gt;</li>
+                        <li class="leftline">     &lt;h1&gt;すべてのh1要素にcssを指定しています。&lt;/h1&gt;</li>
+                        <li class="leftline">   &lt;/body&gt;</li>
+                    </ol>
+                </pre>
+            </code>
+            <p class="souce_code_name">結果</p>
+            <code>
+                <pre class="souce_code_box">
+                    <h1 style="color: red; font-size: 30px; text-align: left;">この文章にはCSSを当てています。</h1>
+                    <h1 style="color: red; font-size: 30px; text-align: left;">すべてのh1要素にcssを指定しています。</h1>
+                </pre>
+            </code>
+        <h3 class="subtitle">別のcssファイルで記述し、指定する</h3>
+            <p class="maintext">この方法は、様々なHTMLファイルと共有して使えたり、
+            cssを修正したいときなどに一括で修正できたりするので使い勝手がいいです。<br>
+            </p>
+            <p class="souce_code_name">HTML</p>
+            <code>
+                <pre class="souce_code_box">
+                    <ol class="souce_code">
+                        <li class="leftline">   &lt;head&gt;</li>
+                        <li class="leftline">     &lt;mata charaset="UTF-8"&gt;</li>
+                        <li class="leftline">       &lt;link rel="stylesheet" href="static/main.css" type=text/css&gt;</li>
+                        <li class="leftline">   &lt;/head&gt;</li>
+                        <li class="leftline">   &lt;body&gt;</li>
+                        <li class="leftline">     &lt;h1&gt;別のファイルでcssを指定しています。&lt;/h1&gt;</li>
+                        <li class="leftline">   &lt;/body&gt;</li>
+                    </ol>
+                </pre>
+            </code>
+            <p class="souce_code_name">main.css</p>
+            <code>
+                <pre class="souce_code_box">
+                    <ol class="souce_code">
+                        <li class="leftline">   h1 {</li>
+                        <li class="leftline">       color: red;</li>
+                        <li class="leftline">       font-size: 30px;</li>
+                        <li class="leftline">      }</li>
+                    </ol>
+                </pre>
+            </code>
+            <p class="souce_code_name">結果</p>
+            <code>
+                <pre class="souce_code_box">
+                    <h1 style="color: red; font-size: 30px; text-align: left;">別のファイルでcssを指定しています。</h1>
+                </pre>
+            </code>
+        <h2 class="maintitle">セレクタ</h2>
+            <p class="maintext">上記の書き方でやった１番目以外の方法では、<span>セレクタ</span>というもので要素を指定してcssを適用しています。
+            上記のcssを例に挙げると、「h1 {}」の「h1」の部分がセレクタになります。他にも様々な指定方法があります。
+            </p>
+            <ul class="list">
+                <li>要素名を直接指定<br>h1 {}, p {}, a {}など </li>
+                <li>要素名を直接指定+複数指定<br>h1, p {}</li>
+                <li>ul要素の中のli要素を指定<br>ul li {}</li>
+                <li>id="check"の属性を持つ要素を指定<br>#check {}</li>
+                <li>class="check"の属性を持つ要素を指定<br>.check {}</li>
+             </ul>
+        
+{% endblock %}

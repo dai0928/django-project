@@ -1,0 +1,23 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+
+        <title>エモ吉のプログラミング基礎講座</title>
+        <link rel="stylesheet" href="{% static 'cms/login.css'%}" type=text/css>
+        <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    </head>
+  <body>
+    <h1 class="title">
+     エモ吉のプログラミング基礎講座
+    </h1>
+    <div class="delete_box">
+        <h1 class="delete_title">退会処理</h1>
+        <form role="form" method="post">
+            {% csrf_token %}
+            <p>アカウント：{{user.username}}を削除しますか？</p>
+            <button type="submit">削除する</button>
+            <a href="{% url 'program:main_menu' %}">キャンセル</a>
+    </div>
+    </form>

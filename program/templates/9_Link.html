@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}ハイパーリンク{% endblock %}
+
+{% block tag %}
+        <div class="next_box">
+        <a href="{% url 'program:Lesson10' %}" class="next_lesson1">Lesson10</a>
+        <a href="{% url 'program:Lesson8' %}" class="back_lesson">Lesson8</a>
+        </div>
+{% endblock %}
+{% block content %}
+            <h1 class="title">Lesson9 ~ハイパーリンク~</h1>
+                <img src="{% static 'cms/images/href.jpg' %}" alt="href_image" class="mainimage">
+                <p class="maintext">HTMLには他のページに飛ぶことができる<span>「ハイパーリンク」</span>という要素があります。</p>
+                <h2 class="maintitle">&lt;a&gt;要素</h2>
+                    <p class="maintext"><span>&lt;a&gt;要素</span>はanchor(アンカー)の略で、ハイパーリンクを表す要素です。<br>
+                    カテゴリはフローコンテンツ、フレージングコンテンツ、インタラクティブコンテンツで、<br>
+                    コンテンツモデルはトランスペアレントというものになります。
+                    トランスペアレントとは「透過」という意味で、<span>親要素のコンテンツモデルを引き継ぐ</span>という特性を持っています。<br>
+                    例えばp要素の子要素としてa要素を記述した場合、a要素のコンテンツモデルは、p要素と同じ「フレージングコンテンツ」ということになります。
+                    </p>
+                    <p class="maintext">&lt;a&gt;要素はハイパーリンクにしたい範囲の文字列を&lt;a&gt;要素で囲い、
+                    <span>「href」</span>という属性をつけて、属性値としてリンク先（hrmlファイルのパスなど）を指定します。<br>
+                    <span class="mini">※hrefはハイパーテキストリファレンス略です。</span><br>
+                    属性値は、リンクさせたいhtmlファイルが同じディレクトリ（フォルダ内）にあれば、ファイル名のみの記述で大丈夫です。<br>
+                    ハイパーリンクとしたテキストは、<span>「アンカーテキスト」</span>と呼ばれます。<br>
+                    すでに存在するWEBサイトにリンクさせたい場合は、属性値にそのサイトのURLを記述すればリンクさせることができます。<br>
+                    画像にもハイパーリンクをつける事ができるのですが、ハイパーリンク化された画像のことを<mark>「バナー」</mark>と呼びます。
+                    </p>
+                    <h3 class="maintitle">リンク先を別ウィンドウで表示させる</h3>
+                        <p class="maintext">リンク先を新しい別のウィンドウで表示させたい場合、&lt;a&gt;に属性と属性値として<span>target="_brank"</span>を記述する
+                        と、ハイパーリンクを開いた際に、新しいウィンドウで表示されるようになります。</p>
+                    <h3 class="maintitle">ページ内リンク</h3>
+                        <p class="maintext">例えばブログなどの1つのページが長いページ内で、ほかの文章の所に一気に飛びたい場合に、ページ内リンクが使われます。<br>
+                        このページ内リンクでは、飛びたい文章に<span>「id」</span>という固有の名前を付けることで、href属性でその文章の「id」を指定することができるようになります。<br>
+                        idを指定する際は、頭に<mark>「#」</mark>をつけてから名前を指定します。</p>
+                <h2 class="maintitle">使用例</h2>
+                <p class="souce_code_name">HTML</p>
+                <code>
+                    <pre class="souce_code_box">
+                        <ol class="souce_code">
+                            <li class="leftline">   &lt;body&gt;</li>
+                            <li class="leftline">       &lt;a href="C:/Users/xxx/anchor.html"&gt;これがアンカーテキストです&lt;/a&gt;</li>
+                            <li class="leftline">       &lt;a href="C:/Users/xxx/anchor.html" target="_brank"&gt;新しいウィンドウで表示されます&lt;/a&gt;</li>
+                            <li class="leftline">       &lt;p id="text"&gt;この文章にtextという名前をつけています&lt;/p&gt;</li>
+                            <li class="leftline">       &lt;a href="#text"&gt;このように「#」でidを指定します&lt;/a&gt;</li>
+                            <li class="leftline">       &lt;a href="C:/Users/xxx/anchor.html"&gt;</li>
+                            <li class="leftline">       &lt;img src="../HTML画像表示用/犬.jpeg" alt="バナー"&nbsp;width="140" height="140"&gt;</li>
+                            <li class="leftline">       &lt;/a&gt;</li>
+                            <li class="leftline">   &lt;/body&gt;</li>
+                        </ol>
+                    </pre>
+                </code>
+{% endblock %}

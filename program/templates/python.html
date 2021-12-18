@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Python導入{% endblock %}
+
+{% block tag %}
+<div class="next_box">
+    <a href="{% url 'program:Python_Lesson' %}" class="next_lesson1">Pythonの基礎文法</a>
+    <a href="{% url 'program:main_menu' %}" class="back_lesson">トップページへ</a>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="title">Python導入</h1>
+    <img src="{% static 'cms/images/python.png' %}" alt="pythonimage" class="mainimage" width="90%" height="400">
+    <p class="maintext">Pythonは、プログラミング言語の中でも非常に人気のある言語です。<br>
+        AIや機械学習、ネットにある情報を選択して抽出するWEBスクレイピングなど様々な事ができます。<br>
+        また、「Django」や「Flask」といったフレームワークでのWEBサービスの開発もでき、<br>
+        このページはその「Django」を使用して作成しています。</p>
+    <h2 class="maintitle">開発環境の構築</h2>
+        <p class="maintext">まずは、PC上でPythonで開発するための環境を構築しましょう。<br>
+        以下のリンクからPythonの公式サイトにアクセスしてください。</p>
+        <a href="https://www.python.org/">https://www.python.org</a>
+        <p class="maintext">アクセスしたら、「Downlords」のタブをクリックすると、<br>
+        <span>Downlord Pthon 〇〇</span>のボタンがあるのでそこからダウンロードができます。</p>
+        <p class="maintext">ダウンロードしたファイルを開くと以下のようなセットアップの画面が出て来ます。</p>
+        <img src="{% static 'cms/images/setup.png' %}" alt="setupimage" class="mainimage" width="90%" height="400">
+        <p class="maintext">画面下部に、「Add Python 3.6 to PATH」というチェックボックスがありますが、<br>
+        これを<span>必ずチェックしてから</span>インストールしましょう。</p>
+        <h3 class="maintitle">テキストエディタの実装</h3>
+            <p class="maintext">Pythonのインストールが終わったら、次はコードを書くためのテキストエディタを入れましょう。<br>
+            「Visual Studio Code(VS-CODE)」、「PyCharm」、「Atom」、「Sublime text」など様々なエディタがありますが、<br>
+            <span>料金や拡張機能</span>などを調べて自分に合ったものを使うとよいでしょう。<br>
+            私は、HTMLのコーディングには「VS-CODE」、Pythonでは「PyCharm」を使用しています。</p>
+{% endblock %}

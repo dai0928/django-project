@@ -1,0 +1,67 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}エモ吉のプログラミング基礎講座{% endblock %}</title> 
+        <link rel="stylesheet" href="{% static 'cms/main.css'%}" type="text/css">
+        <link rel="stylesheet" href="{% static 'cms/Lesson.css'%}" type="text/css">
+    </head>
+    <body class="back">
+        <header class="head">
+            <div class=fontbox>
+                {% if user.id %}
+                <h1 class="hyper"><br>{{ user.username }}</h1>
+                {% else %}
+                <h1 class="hyper"><br>Guest User</h1>
+                {% endif %}
+                <h1 class="headtext">
+                    EMO.Program
+                </h1>
+                <input type="checkbox" class="box" id="check">
+                <label for="check" class="manu" id="boxlabel"><span></span></label>
+                <div class="menu-box">
+                    <dl class="list-box">
+                        <dt class="listmanu"><a href="{% url 'program:main_menu' %}" class="button1">HOME</a></dt>
+                        <dt class="listmanu"><a href="{% url 'login' %}" class="button1">ログイン</a></dt>
+                        <dt class="listmanu"><a href="{% url 'create' %}" class="button1">会員登録</a></dt>
+                        {% if user.is_authenticated %}
+                        <dt class="listmanu"><a href="{% url 'delete' user.username %}" class="button1">退会</a></dt>
+                        {% endif %}
+                    </dl>
+                </div>    
+            </div>
+        </header>
+        <aside class="side">
+            <div class="side_item">
+                <dl>
+                    <dt class="sidetitle">HTML講座</dt>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson1' %}">Lesson1 ～HTMLのバージョン～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson2' %}">Lesson2 ～カテゴリとコンテンツモデル～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson3' %}">Lesson3 ～head要素・文字化けの原因～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson4' %}">Lesson4 ～bodyにおける要素～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson5' %}">Lesson5 ～特殊文字、改行～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson6' %}">Lesson6 ～箇条書きについて～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson7' %}">Lesson7 ～用語説明型リストについて～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson8' %}">Lesson8 ～画像表示～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson9' %}">Lesson9 ～ハイパーリンク～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson10' %}">Lesson10 ～表について～</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Lesson11' %}">Lesson11 ～フォームについて～</a></dd>
+                    <dt class="sidetitle2">CSS講座</dt>
+                        <dd class="sidemenu"><a href="{% url 'program:Css_Lesson' %}">CSSの基礎</a></dd>
+                    <dt class="sidetitle3">Pyton講座</dt>
+                        <dd class="sidemenu"><a href="{% url 'program:Python' %}">Python環境構築</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Python_Lesson' %}">Pythonの基礎文法</a></dd>
+                        <dd class="sidemenu"><a href="{% url 'program:Scraping' %}">スクレイピングの部屋</a></dd>
+                </dl>
+            </div>
+        </aside>
+        {% block tag %}
+            no content
+        {% endblock %}
+        <div class="frame">
+            {% block content %}
+                no content
+            {% endblock %}
+        </div>
+    </body>

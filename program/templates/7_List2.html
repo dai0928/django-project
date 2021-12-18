@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}用語説明型リストについて{% endblock %}
+
+{% block tag %}
+    <div class="next_box">
+      <a href="{% url 'program:Lesson8' %}" class="next_lesson1">Lesson8</a>
+      <a href="{% url 'program:Lesson6' %}" class="back_lesson">Lesson6</a>
+    </div>
+{% endblock %}
+{% block content %}
+      <h1 class="title">Lesson7~用語説明型リストについて~</h1>
+        <img src="{% static 'cms/images/list2.jpg' %}" alt="list2_image" class="mainimage"> 
+        <p class="maintext">用語説明リストとは、<span>用語とその用語の説明</span>>が一体化したリストです。</p>
+        <h2 class="maintitle">&lt;dl&gt;要素</h2>
+          <p class="maintext">&lt;dl&gt;要素は、description&nbsp;listの略で、<span>説明リスト</span>を表します</p>
+        <h2 class="maintitle">&lt;dt要素&gt;</h2>
+          <p class="maintext">&lt;dt&gt;要素は、description&nbsp;termの略で、上記の説明リストの内の<span>用語</span>を表します。<br>
+          &lt;dt&gt;要素は&lt;dl&gt;要素内にのみに配置可能で、どこに配置するのか明確なためカテゴリはありません。</p>
+          <h2 class="maintitle">&lt;dd&gt;要素</h2>
+          <p class="maintext">&lt;dd&gt;要素は、description,definitionの略で、上記の説明リスト内の<span>説明や定義</span>を表します。<br>
+          &lt;dt&gt;要素と同じ理由でカテゴリがありません。</p>
+        <h2 class="maintitle">使用例</h2>
+          <p class="maintext">実際に上記の要素を使って用語説明リストを作ってみると</p>
+          <p class="souce_code_name">HTML</p>
+          <code>
+              <pre class="souce_code_box">
+                  <ol class="souce_code">
+                    <li class="leftline">&lt;dl&gt;</li>
+                    <li class="leftline"> &lt;dt&gt;python関数　「print()」&lt;/dt&gt;</li>
+                    <li class="leftline">   &lt;dd&gt;()内の文字列を出力する&lt;/dd&gt;</li>
+                    <li class="leftline"> &lt;dt&gt;python関数　「int()」&lt;/dt&gt;</li>
+                    <li class="leftline">   &lt;dd&gt;()内の数字を&lt;em&gt;int型&lt;/em&gt;に変更する&lt;/dd&gt;</li>
+                    <li class="leftline"> &lt;dt&gt;python関数　「def」&lt;/dt&gt;</li>
+                    <li class="leftline">   &lt;dd&gt;defを使うと新たに関数を定義することができる&lt;/dd&gt;</li>
+                    <li class="leftline">&lt;/dl&gt;</li>
+                </ol>
+            </pre>
+        </code>
+        <p class="souce_code_name">結果</p>
+        <code>
+            <pre class="souce_code_box">
+              <dl>
+                <dt>python関数　「print()」</dt>
+                  <dd> ()内の文字列を出力する</dd>
+                <dt>python関数　「int()」</dt>
+                  <dd> ()内の数字を<em>int型</em>に変更する</dd>
+                <dt>python関数　「def」</dt>
+                  <dd> defを使うと新たに関数を定義することができる</dd>
+              </dl>
+            </pre>
+        </code>
+        <p class="maintext">というようなリストが生成されます。<br>
+          &lt;dd&gt;要素の部分には自動的にインデントが入ります。</p>
+{% endblock %}

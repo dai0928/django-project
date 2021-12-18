@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}bodyにおける要素{% endblock %}
+
+{% block tag %}
+    <div class="next_box">
+      <a href="{% url 'program:Lesson5' %}" class="next_lesson1">Lesson5</a>
+      <a href="{% url 'program:Lesson3' %}" class="back_lesson">Lesson3</a>
+    </div>
+{% endblock %}
+{% block content %}
+      <h1 class="title">Lesson4 ~bodyにおける要素~</h1>
+        <img src="{% static 'cms/images/body.jpg' %}" alt="body_image" class="mainimage">
+        <p class="maintext">body要素では、そのページで表示させる文章を記述し、様々な要素でマークアップして意味を与えていきます。</p>
+        <h2 class="maintitle">見出しを表す要素</h2>
+          <p class="maintext">&lt;h1&gt;～&lt;h6&gt;要素はheadingの略で<span>見出し</span>であることを表します。
+          h1が大見出し、その大見出しの中の小見出しとしてh2・・・といった使い方をします。<br>
+          カテゴリは<mark>フローコンテンツ、ヘディングコンテンツ</mark>の二つに属し、コンテンツモデルは<mark>フレージングコンテンツ</mark>です。<br>
+          <strong>※この要素は、階層構造となっているため、途中で強調したい文章をh1に指定するなどという使い方はしません。</strong><br>
+          文字のデザインはCSSにて変更するので、「見出し」という要素を「強調」と間違わないように注意しましょう。
+          </p>
+        <h2 class="maintitle">段落を表す要素</h2>
+          <p class="maintext">&lt;p&gt;要素はparagraphの略で、要素内が<span>段落</span>であることを示します。
+          カテゴリは<mark>フローコンテンツ</mark>で、コンテンツモデルは<mark>フレージングコンテンツ</mark>です。
+          </p>
+        <h2 class="maintitle">使用例</h2>
+          <p class="souce_code_name">HTML</p>
+          <code>
+              <pre class="souce_code_box">
+                  <ol class="souce_code">
+                      <li class="leftline">&lt;!DOCTYPE&nbsp;html&gt;</li>
+                      <li class="leftline">&lt;html lang='ja'&gt;</li>
+                      <li class="leftline">   &lt;head&gt;</li>
+                      <li class="leftline">       &lt;meta&nbsp;charaset='UTF-8'&gt;</li>
+                      <li class="leftline">       &lt;title&gt;body要素について&lt;/title&gt;</li>
+                      <li class="leftline">   &lt;/head&gt;</li>
+                      <li class="leftline">   &lt;body&gt;</li>
+                      <li class="leftline">     &lt;h1&gt;大見出し&lt;/h1&gt;</li>
+                      <li class="leftline">       &lt;p&gt;内容&lt;/p&gt;</li>
+                      <li class="leftline">       &lt;h2&gt;小見出し&lt;/h2&gt;</li>
+                      <li class="leftline">   &lt;/body&gt;</li>
+                      <li class="leftline">&lt;/html&gt;</li>
+                  </ol>
+              </pre>
+          </code>
+{% endblock %}
+

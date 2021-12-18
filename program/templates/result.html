@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}Result{% endblock %}
+
+{% block tag %}
+<div class="next_box">
+    <a href="{% url 'program:main_menu' %}" class="next_lesson1">トップページへ</a>
+    <a href="{% url 'program:Scraping' %}" class="back_lesson">戻る</a>
+</div>
+{% endblock %}
+
+{% block content %}
+<h1 class="maintitle">SCRAPING-RESULT</h1>
+    <p class="search">{{ result1 }}</p>
+{% for key, value in title_link.items %}
+    <p class="maintext">・{{ key.text }}<br>
+        <a href="{{value}}">{{ value }}</a></p>
+{% endfor %}
+{% endblock %}

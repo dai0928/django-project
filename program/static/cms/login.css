@@ -36,7 +36,7 @@ body {
     position: absolute;
     top: 5%;
     text-decoration: none;
-    font-size: 2vw;
+    font-size: 300%;
     color: rgba(255, 255, 255, 0.8);
     transition: all 0.2s;
 }
@@ -54,17 +54,18 @@ body {
 }
 
 .login_user p{
-    font-size: 2vw;
+    font-size: 250%;
     font-family: serif;
     color: rgba(0, 0, 0, 0.8);
 }
 
 .logout_btn {
     position: absolute;
-    top: 60%;
-    left: 30%;
+    top: 58%;
+    left: 33%;
     text-decoration: none;
-    font-size: 2vw;
+    font-size: 250%;
+    font-weight: 900;
     font-family: "Amatic SC", cursive;
     color: rgba(0, 0, 0, 0.8);
 }
@@ -72,9 +73,10 @@ body {
 .main_btn {
     position: absolute;
     top: 60%;
-    left: 60%;
+    left: 57%;
     text-decoration: none;
-    font-size: 2vw;
+    font-size: 250%;
+    font-weight: 900;
     font-family: "Amatic SC", cursive;
     color: rgba(0, 0, 0, 0.8);
 }
@@ -90,8 +92,8 @@ body {
 
 .login {
     position: absolute;
-    top: 50%;
-    left: 35%;
+    top: 40%;
+    left: 30%;
     text-decoration: none;
     font-size: 500%;
     font-family: "Amatic SC", cursive;
@@ -107,9 +109,9 @@ body {
 .create {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%;
     text-decoration: none;
-    font-size: 800%;
+    font-size: 500%;
     font-family: "Amatic SC", cursive;
     color: rgba(255,255,255,0.8);
     transition: 0.5s;
@@ -130,7 +132,7 @@ body {
 .id dt, dd {
     float: left;
     margin: 1vw;
-    font-size: 2vw;
+    font-size: 250%;
     font-family: "Amatic SC", cursive;
 }
 
@@ -192,17 +194,13 @@ body {
 .create-text {
     list-style: none;
     color: rgba(255, 0, 0, 0.5);
-    font-size: 1vw;
-}
-
-.error-text {
-
+    font-size: 100%;
 }
 
 .button-register {
     position: absolute;
     top: 55%;
-    left: 55%;
+    left: 60%;
     overflow: hidden;
     font-size: 1vw;
     font-family: serif;
@@ -236,4 +234,105 @@ body {
 
 .button-register:hover:before {
     right: 0;
+}
+
+.reset_btn {
+    position: absolute;
+    top: 65%;
+    margin-left: 30%;
+    text-decoration: none;
+    font-size: 250%;
+    font-weight: 900;
+    font-family: "Amatic SC", cursive;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.reset {
+    position: absolute;
+    left: 35%;
+    top: 40%;
+}
+
+.reset_title {
+    font-size: 2.9vw;
+    font-family: serif;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 3%;
+}
+
+.reset p {
+    font-size: 1vw;
+    padding: 3%;
+}
+
+.guest {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    text-decoration: none;
+    font-size: 500%;
+    font-family: "Amatic SC", cursive;
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.5s;
+}
+
+.guest:hover {
+    font-size: 4.5vw;
+    color:rgba(0, 0, 0, 0.5);
+}
+
+.delete_box {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    height: 50%;
+}
+
+.delete_title {
+    color: rgba(255, 0, 0, 0.7);
+    font-size: 3vw;
+    border-bottom: 2px solid black;
+}
+
+.delete_box p {
+    position: relative;
+    font-size: 2vw;
+}
+
+.delete_box form {
+    height: 70%;
+}
+
+.delete_box button {
+    position: relative;
+    color: rgba(255, 0, 0, 0.7);
+    top: 50%;
+    left: 10%;
+    background: none;
+    border-color: rgba(143, 143, 143, 0.7);
+    border-style: outset;
+    border-width: 3px;
+    font-size: 2vw;
+    transition: 1s;
+}
+
+.delete_box button:hover {
+    border-style: inset;
+}
+
+.delete_box a {
+    position: relative;
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    font-size: 2vw;
+    border-style: outset;
+    border-color: rgba(143, 143, 143, 0.7);
+    border-width: 3px;
+    
+    top: 50%;
+    left: 40%;
+}
+
+.delete_box a:hover {
+    border-style: inset;
 }
