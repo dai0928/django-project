@@ -5,6 +5,7 @@ import chromedriver_binary
 from selenium.webdriver.chrome.options import Options
 from django.urls import reverse_lazy
 from .models import *
+from time import sleep
 
 
 class MainLesson(TemplateView):
@@ -84,8 +85,10 @@ def search_list(request):
     options.add_argument("--disable-dev-shm-usage")
     browser = webdriver.Chrome(options=options)
     browser.get(url)
+    sleep(3)
     next_page = browser.find_element_by_xpath("//a[@aria-label='Page 10']")
     next_page.click()
+    sleep(3)
     div = browser.find_elements_by_class_name("yuRUbf")
     title1 = div[0].find_element_by_class_name("LC20lb")
     title2 = div[1].find_element_by_class_name("LC20lb")
