@@ -80,6 +80,8 @@ def search_list(request):
         url = "https://www.google.co.jp/search?q=" + word.text
     options = Options()
     options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     browser = webdriver.Chrome(options=options)
     browser.get(url)
     next_page = browser.find_element_by_xpath("//a[@aria-label='Page 10']")
