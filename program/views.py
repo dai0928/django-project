@@ -88,7 +88,7 @@ def search_list(request):
     # サーバーのChromeが立ち上がったまま次の処理が実行されるとChromeがクラッシュする為、tryでスクレイピング処理、finallyでブラウザの終了を記述した
     try:
         browser.get(url)
-        sleep(1)
+        sleep(3)
         next_page = browser.find_element_by_xpath("//a[@aria-label='Page 10']")
         next_page.click()
         sleep(1)
