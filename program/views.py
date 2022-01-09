@@ -87,7 +87,7 @@ def search_list(request):
     try:
         browser.get(url)
         sleep(1)
-        next_page = browser.find_element_by_xpath("//a[@aria-label='Page 5']")
+        next_page = browser.find_element_by_xpath("//a[@aria-label='Page 10']")
         next_page.click()
         sleep(1)
         div = browser.find_elements_by_class_name("yuRUbf")
