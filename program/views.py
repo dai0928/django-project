@@ -114,8 +114,10 @@ def search_list(request):
     title_link = dict(zip(title, link))
     # print(list)
     # print(type(list))
+    browser.quit()
 
     return render(request, "result.html", context={"result1": result1, "title_link": title_link})
+
 
 
 
