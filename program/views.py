@@ -81,9 +81,11 @@ def search_list(request):
         url = "https://www.google.co.jp/search?q=" + word.text
     options = Options()
     options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
+    # options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--incognito")
     browser = webdriver.Chrome(options=options)
+    # サーバーのChromeが立ち上がったまま次の処理が実行されるとChromeがクラッシュする為、tryでスクレイピング処理、finallyでブラウザの終了を記述した
     try:
         browser.get(url)
         sleep(1)
@@ -113,8 +115,6 @@ def search_list(request):
         link = [link1, link2, link3, link4, link5]
 
         title_link = dict(zip(title, link))
-        # print(list)
-        # print(type(list))
         return render(request, "result.html", context={"result1": result1, "title_link": title_link})
     finally:
         browser.quit()
