@@ -13,6 +13,10 @@
 {% block content %}
 <h1 class="maintitle">SCRAPING-RESULT</h1>
     <p class="search">{{ result1 }}</p>
+    <a href="{{urls}}" class="maintext">{{urls}}</a>
+    <!--{% for title in title %}
+    <p class="maintext">{{title.text}}</p>
+    {% endfor %}-->
 {% for key, value in title_link.items %}
     <p class="maintext">・{{ key.text }}<br>
         <a href="{{value}}">{{ value }}</a></p>
