@@ -14,9 +14,9 @@
     <p class="maintext">このページでは、Pythonの「selenium」というライブラリを使った<br>
     WEBスクレイピングを試すことができます。<br>
     このseleniumとは、<span>ブラウザの操作を自動化するもの</span>です。
-    以下の検索ボックスに好きな単語を入れて「GET」ボタンを押すと、自動で「https://www.yahoo.co.jp」にてその単語を入力、検索し、
+    以下の検索ボックスに好きな単語を入れて「GET」ボタンを押すと、自動で「https://duckduckgo.com」にてその単語を入力、検索し、
     その検索結果の上位5個のページのタイトル、URLを取得して表示します。</p>
-    <strong>※パーソナライズド検索による検索結果の変化を防止する為、シークレットモードでの検索結果となっております。</strong>
+    <strong>※ヘッドレスクロームでの検索のため、検索結果が通常と変わっております。</strong>
     <p class="search">Enter kinds of word</p>
     <form action="" method="POST">
     <p>KEY-WORD:{% csrf_token %}

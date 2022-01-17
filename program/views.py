@@ -78,7 +78,7 @@ class Search_name(CreateView):
 def search_list(request):
     for word in SearchModel.objects.all():
         result1 = "Search_word:" + word.text
-    url = "https://www.yahoo.co.jp/"
+    url = "https://duckduckgo.com/"
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
@@ -91,18 +91,18 @@ def search_list(request):
         browser.set_window_size(1024, 768)
         browser.get(url)
         sleep(2)
-        search_box = browser.find_element_by_class_name("_1wsoZ5fswvzAoNYvIJgrU4")
+        search_box = browser.find_element_by_class_name("js-search-input")
         search_box.send_keys(word.text)
-        search_btn = browser.find_element_by_class_name("PHOgFibMkQJ6zcDBLbga8")
+        search_btn = browser.find_element_by_class_name("search__button")
         search_btn.click()
         sleep(2)
         # browser.save_screenshot("page.png")
-        div = browser.find_elements_by_class_name("Algo")
-        title1 = div[0].find_element_by_class_name("sw-Card__titleMain")
-        title2 = div[1].find_element_by_class_name("sw-Card__titleMain")
-        title3 = div[2].find_element_by_class_name("sw-Card__titleMain")
-        title4 = div[3].find_element_by_class_name("sw-Card__titleMain")
-        title5 = div[4].find_element_by_class_name("sw-Card__titleMain")
+        div = browser.find_elements_by_class_name("result__body")
+        title1 = div[0].find_element_by_class_name("result__title")
+        title2 = div[1].find_element_by_class_name("result__title")
+        title3 = div[2].find_element_by_class_name("result__title")
+        title4 = div[3].find_element_by_class_name("result__title")
+        title5 = div[4].find_element_by_class_name("result__title")
         title = [title1, title2, title3, title4, title5]
         # # print(type(title))
         # # print(title)
